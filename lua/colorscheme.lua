@@ -1,6 +1,6 @@
 vim.opt.guifont = "FiraCode Nerd Font:h17"
 vim.opt.termguicolors = true
-vim.opt.background = "dark" 
+vim.opt.background = "dark"
 
 vim.cmd 'hi LineNr ctermbg=NONE guibg=NONE'
 vim.cmd 'colorscheme molokayo'

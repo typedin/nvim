@@ -1,6 +1,6 @@
+require("settings")
 require("plugins")
 require("colorscheme")
-require("settings")
 require("lsp")
 require("formating")
 

@@ -12,7 +12,7 @@ vim.g.maplocalleader = ","
 -- show hide white spaces and indent blanklines
 vim.api.nvim_set_keymap("n", "<Leader>l", ":set list! | :IndentBlanklineToggle<cr>", opts)
 
-vim.api.nvim_set_keymap("n", "<Leader>e", ":NvimTreeToggle<cr>", opts)
+vim.api.nvim_set_keymap("n", "<Leader>e", ":NvimTreeToggle<cr>", opts) -- NvimTreeToggle
 
 -- no hl
 vim.api.nvim_set_keymap("n", "<Leader>h", ":set hlsearch!<CR>", opts)
@@ -25,4 +25,11 @@ vim.api.nvim_set_keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 vim.cmd([[
 	nmap <LocalLeader>e <Plug>(Scalpel)
 ]])
+
+-- lspsaga
+vim.api.nvim_set_keymap("n", "<LocalLeader>n", "<Cmd>Lspsaga diagnostic_jump_next<CR>", opts)
+vim.api.nvim_set_keymap("n", "<LocalLeader>p", "<Cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
+vim.api.nvim_set_keymap("n", "<LocalLeader>h", "<Cmd>Lspsaga hover_doc<CR>", opts)
+vim.api.nvim_set_keymap("n", "<LocalLeader>s", "<Cmd>Lspsaga signature_help<CR>", opts)
+vim.api.nvim_set_keymap("n", "gh", "<Cmd>Lspsaga lsp_finder<CR>", opts)
 

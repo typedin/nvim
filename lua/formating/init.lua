@@ -1,6 +1,6 @@
 require"lspconfig".efm.setup {
     init_options = {documentFormatting = true},
-    filetypes = {"lua"},
+    filetypes = {"lua", "php"},
     settings = {
         rootMarkers = {".git/"},
         languages = {
