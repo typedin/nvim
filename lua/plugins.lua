@@ -1,21 +1,24 @@
 return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
-    
+
     -- LSP
     use "neovim/nvim-lspconfig"
     use "kabouzeid/nvim-lspinstall"
     use "glepnir/lspsaga.nvim"
-    
+
     -- TreeSitter
     use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
     -- use "folke/trouble.nvim"
+
+    -- formatting
+    use 'b3nj5m1n/kommentary'
 
     -- fuzzy
     use 'nvim-lua/popup.nvim'
     use 'nvim-lua/plenary.nvim'
     use 'nvim-telescope/telescope.nvim'
-    
+
     -- Navigation
     use "andymass/vim-matchup"
     use "christoomey/vim-tmux-navigator"
@@ -26,7 +29,7 @@ return require('packer').startup(function(use)
 
     -- GIT
     use "tpope/vim-fugitive"
-    
+
     -- autopair
     use "cohama/lexima.vim"
 
@@ -45,7 +48,7 @@ return require('packer').startup(function(use)
 
     -- completion
     use 'nvim-lua/completion-nvim'
-    
+
     -- Color
     use "christianchiarulli/nvcode-color-schemes.vim"
     use "rafi/awesome-vim-colorschemes"
