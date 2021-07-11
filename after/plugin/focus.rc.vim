@@ -9,6 +9,7 @@ hi LineNr ctermbg=NONE guibg=NONE
 highlight Comment cterm=italic gui=italic
 
 
+" @see: https://gist.github.com/ctaylo21/c3620a945cee6fc3eb3cb0d7f57faf00
 " Change highlight group of active/inactive windows
 function! Handle_Win_Enter()
   setlocal winhighlight=Normal:ActiveWindow,NormalNC:InactiveWindow

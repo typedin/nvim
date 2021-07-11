@@ -47,7 +47,10 @@ return require('packer').startup(function(use)
     use 'pierreglaser/folding-nvim'
 
     -- completion
-    use 'nvim-lua/completion-nvim'
+    -- use 'nvim-lua/completion-nvim'
+    use 'hrsh7th/nvim-compe'
+    use 'hrsh7th/vim-vsnip'
+    use 'hrsh7th/vim-vsnip-integ'
 
     -- Color
     use "christianchiarulli/nvcode-color-schemes.vim"
