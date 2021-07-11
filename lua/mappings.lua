@@ -4,7 +4,7 @@ local opts = { noremap=true, silent=true }
 
 -- LuaFormatter off
 vim.api
-    .nvim_set_keymap("n", "<Space>", "<NOP>", opts )
+.nvim_set_keymap("n", "<Space>", "<NOP>", opts )
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
@@ -23,7 +23,7 @@ vim.api.nvim_set_keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 
 -- scalpel
 vim.cmd([[
-	nmap <LocalLeader>e <Plug>(Scalpel)
+  nmap <LocalLeader>e <Plug>(Scalpel)
 ]])
 
 -- lspsaga
@@ -33,3 +33,8 @@ vim.api.nvim_set_keymap("n", "<LocalLeader>h", "<Cmd>Lspsaga hover_doc<CR>", opt
 vim.api.nvim_set_keymap("n", "<LocalLeader>s", "<Cmd>Lspsaga signature_help<CR>", opts)
 vim.api.nvim_set_keymap("n", "gh", "<Cmd>Lspsaga lsp_finder<CR>", opts)
 
+-- resizing
+vim.api.nvim_set_keymap("n", "<C-Up>", ":resize -2<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<C-Down>", ":resize +2<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<C-Left>", ":vertical resize -2<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<C-Right>", ":vertical resize +2<CR>", { silent = true })
