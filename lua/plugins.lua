@@ -51,9 +51,9 @@ return require('packer').startup(function(use)
     }
 
     -- completion
-    use 'hrsh7th/nvim-compe'
-    use 'hrsh7th/vim-vsnip'
-    use 'hrsh7th/vim-vsnip-integ'
+  use  'hrsh7th/nvim-compe' 
+  use 'hrsh7th/vim-vsnip'
+  use 'hrsh7th/vim-vsnip-integ'
 
     -- Color
     use "christianchiarulli/nvcode-color-schemes.vim"

@@ -64,4 +64,8 @@ require'lspconfig'.phpactor.setup{
     on_attach = on_attach,
     filetypes = { "php" }
 }
+require'lspconfig'.efm.setup{
+    on_attach = on_attach,
+    filetypes = { "php", "lua" }
+  }
 

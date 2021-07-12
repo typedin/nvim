@@ -1,10 +1,9 @@
 -- /!\ mappings for compe are set in config/nvim-compe /!\
 --Mappings.
-local opts = { noremap=true, silent=true }
+local opts = { noremap = true, silent = true }
 
 -- LuaFormatter off
-vim.api
-.nvim_set_keymap("n", "<Space>", "<NOP>", opts )
+vim.api.nvim_set_keymap("n", "<Space>", "<NOP>", opts )
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
