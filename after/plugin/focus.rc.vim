@@ -1,8 +1,9 @@
 " Background colors for active vs inactive windows
 hi ActiveWindow guibg=#000000
 hi InactiveWindow guibg=#252525
+hi EndOfBuffer guifg=#000000
 
-hi! VertSplit guibg=#252525 guifg=#252525 ctermbg=233  ctermfg=233
+hi! VertSplit guibg=#252525 guifg=#252525
 
 hi! Normal guibg=#000000 guifg=#ffffff ctermbg=234 ctermfg=15
 hi LineNr ctermbg=NONE guibg=NONE

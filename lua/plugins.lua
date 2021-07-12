@@ -3,13 +3,14 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     -- LSP
-    use "neovim/nvim-lspconfig"
-    use "kabouzeid/nvim-lspinstall"
     use "glepnir/lspsaga.nvim"
+    use "kabouzeid/nvim-lspinstall"
+    use "neovim/nvim-lspconfig"
+    use 'folke/lsp-colors.nvim'
 
     -- TreeSitter
     use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
-    -- use "folke/trouble.nvim"
+    use "folke/trouble.nvim"
 
     -- formatting
     use 'b3nj5m1n/kommentary'
@@ -20,34 +21,36 @@ return require('packer').startup(function(use)
     use 'nvim-telescope/telescope.nvim'
 
     -- Navigation
+    use "kyazdani42/nvim-tree.lua"
     use "andymass/vim-matchup"
     use "christoomey/vim-tmux-navigator"
-    use "kyazdani42/nvim-tree.lua"
-    use "lukas-reineke/indent-blankline.nvim"
     use "tpope/vim-surround"
     use "wincent/scalpel"
 
     -- GIT
+    use "junegunn/gv.vim"
+    use "mhinz/vim-signify"
     use "tpope/vim-fugitive"
+    use "tpope/vim-rhubarb"
+    use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
+    use "f-person/git-blame.nvim"
 
     -- autopair
     use "cohama/lexima.vim"
 
     -- eye candy
     use "ap/vim-css-color"
+    use "lukas-reineke/indent-blankline.nvim"
     use "machakann/vim-highlightedyank"
     use "norcalli/nvim-colorizer.lua"
+    use 'pierreglaser/folding-nvim'
 
     use {
         'hoob3rt/lualine.nvim',
         requires = {'kyazdani42/nvim-web-devicons', opt = true}
     }
 
-    use 'folke/lsp-colors.nvim'
-    use 'pierreglaser/folding-nvim'
-
     -- completion
-    -- use 'nvim-lua/completion-nvim'
     use 'hrsh7th/nvim-compe'
     use 'hrsh7th/vim-vsnip'
     use 'hrsh7th/vim-vsnip-integ'

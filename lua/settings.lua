@@ -141,3 +141,30 @@ if vim.fn.filereadable('/usr/bin/python') == 1 then
     -- Avoid search, speeding up start-up.
     vim.g.python3_host_prog = '/usr/bin/python'
 end
+
+-- NvimTree
+vim.g.nvim_tree_ignore = { '.git', 'node_modules', '.cache', '*.un~', 'shada'}
+vim.g.nvim_tree_gitignore = 1
+vim.g.nvim_tree_git_hl = 1
+vim.g.nvim_tree_highlight_opened_files = 1
+vim.g.nvim_tree_disable_window_picker = 1
+vim.g.nvim_tree_icons = {
+    default = "",
+    symlink = "",
+    git = {
+      unstaged = "",
+      staged = "S",
+      unmerged = "",
+      renamed = "➜",
+      deleted = "",
+      untracked = "U",
+      ignored = "◌",
+    },
+    folder = {
+      default = "",
+      open = "",
+      empty = "",
+      empty_open = "",
+      symlink = "",
+    },
+  }
