@@ -3,8 +3,10 @@ vim.opt.termguicolors = true
 -- vim.opt.background = "dark"
 
 -- vim.cmd 'colorscheme molokayo'
-vim.g.nord_contrast = true
-vim.g.nord_borders = false
+-- https://github.com/shaunsingh/nord.nvim
+-- the following settings are overriden by the blur config file
+vim.g.nord_contrast = false
+vim.g.nord_borders = true
 vim.g.nord_disable_background = false
 require('nord').set()
 
