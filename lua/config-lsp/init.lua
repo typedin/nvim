@@ -1,5 +1,6 @@
 -- require("config-lsp/ts-fmt-lint").setup()
 require("config-lsp/lsp-css")
+require("config-lsp/lsp-efm")
 require("config-lsp/lsp-lua")
 require("config-lsp/lsp-vim")
 require("config-lsp/lsp-json")

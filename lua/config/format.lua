@@ -6,10 +6,17 @@ local c_lang = function()
         cwd = vim.fn.expand('%:p:h') -- Run clang-format in cwd of the file.
     }
 end
-local tsscript = function()
+local prettier = function()
     return {
         exe = "prettier",
         args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
+        stdin = true
+    }
+end
+local eslint = function()
+    return {
+        exe = "eslint_d",
+        args = {"--stdin-kilename", vim.api.nvim_buf_get_name(0)},
         stdin = true
     }
 end
@@ -18,8 +25,8 @@ require('formatter').setup({
     filetype = {
         c = {c_lang},
         cpp = {c_lang},
-        typescript = {tsscript},
-        javascript = {tsscript},
+        typescript = {prettier, eslint},
+        javascript = {prettier, eslint},
         python = {
             function()
                 return {exe = "black", args = {"-"}, stdin = true}
