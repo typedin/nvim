@@ -29,6 +29,7 @@ return require('packer').startup(function(use)
 
     -- formatting
     use 'b3nj5m1n/kommentary'
+    use 'mhartington/formatter.nvim'
 
     -- fuzzy
     use 'nvim-lua/popup.nvim'
