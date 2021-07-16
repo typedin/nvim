@@ -2,11 +2,26 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
+    -- use lua in ftplugin 
+    use "tjdevries/astronauta.nvim"
+
     -- LSP
     use "glepnir/lspsaga.nvim"
     use "kabouzeid/nvim-lspinstall"
     use "neovim/nvim-lspconfig"
     use 'folke/lsp-colors.nvim'
+    -- Javascript / Typescript
+    use {
+      "jose-elias-alvarez/nvim-lsp-ts-utils",
+      ft = {
+        "javascript",
+        "javascriptreact",
+        "javascript.jsx",
+        "typescript",
+        "typescriptreact",
+        "typescript.tsx",
+      },
+    }
 
     -- TreeSitter
     use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
@@ -51,7 +66,7 @@ return require('packer').startup(function(use)
     }
 
     -- completion
-    use  'hrsh7th/nvim-compe' 
+    use 'hrsh7th/nvim-compe'
     use 'hrsh7th/vim-vsnip'
     use 'hrsh7th/vim-vsnip-integ'
 
