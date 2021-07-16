@@ -1,3 +1,6 @@
+-- https://github.com/mhartington/formatter.nvim/issues/31
+-- this is where it is exmplained how to set many linters/formatters for one
+-- filetype
 local c_lang = function()
     return {
         exe = "clang-format",

@@ -1,4 +1,3 @@
--- require("config-lsp/ts-fmt-lint").setup()
 require("config-lsp/lsp-css")
 require("config-lsp/lsp-efm")
 require("config-lsp/lsp-lua")
