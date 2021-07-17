@@ -1,4 +1,5 @@
 require("config.compe")
 require("config.format")
+require("config.gitsigns")
 require("config.lspsaga")
 require("config.lualine")
