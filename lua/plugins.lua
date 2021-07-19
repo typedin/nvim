@@ -51,6 +51,7 @@ return require('packer').startup(function(use)
     use "machakann/vim-highlightedyank"
     use "norcalli/nvim-colorizer.lua"
     use 'pierreglaser/folding-nvim'
+    use 'sunjon/shade.nvim'
 
     use {
         'hoob3rt/lualine.nvim',
@@ -60,7 +61,7 @@ return require('packer').startup(function(use)
     -- completion
     use 'hrsh7th/nvim-compe'
     use 'hrsh7th/vim-vsnip'
-    use 'hrsh7th/vim-vsnip-integ'
+    -- use 'hrsh7th/vim-vsnip-integ'
 
     -- Color
     use 'shaunsingh/nord.nvim'

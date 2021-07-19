@@ -1,10 +1,10 @@
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
 -- https://github.com/shaunsingh/nord.nvim
--- the following settings are overriden by the blur config file
+-- the following settings are overriden in after/plugin/color.vim
 vim.g.nord_contrast = false
 vim.g.nord_borders = false
-vim.g.nord_disable_background = false
+vim.g.nord_disable_background = true
 require('nord').set()
 
 vim.cmd([[
