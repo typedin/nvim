@@ -10,7 +10,7 @@ vim.opt.hlsearch = true
 
 vim.opt.showcmd = false
 vim.opt.mouse = "a" -- Enable your mouse
-vim.opt.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
+vim.opt.signcolumn = "yes:1" -- Always show the signcolumn, otherwise it would shift the text each time
 vim.opt.emoji = false -- don't assume all emoji are double width
 
 vim.opt.scrolloff = 10 -- start scrolling 3 lines before edge of viewportvim.opt.modelines

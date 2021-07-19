@@ -21,6 +21,14 @@ vim.api.nvim_set_keymap("n", "<Leader>h", ":set hlsearch!<CR>", opts)
 vim.api.nvim_set_keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 vim.api.nvim_set_keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 
+-- resizing
+vim.api.nvim_set_keymap("n", "<C-Up>", ":resize -2<CR>", {silent = true})
+vim.api.nvim_set_keymap("n", "<C-Down>", ":resize +2<CR>", {silent = true})
+vim.api.nvim_set_keymap("n", "<C-Left>", ":vertical resize -2<CR>",
+                        {silent = true})
+vim.api.nvim_set_keymap("n", "<C-Right>", ":vertical resize +2<CR>",
+                        {silent = true})
+
 -- Open last buffer
 vim.cmd([[
   nnoremap <LocalLeader><LocalLeader> <C-^>
@@ -29,22 +37,3 @@ vim.cmd([[
 vim.cmd([[
   nmap <LocalLeader>e <Plug>(Scalpel)
 ]])
-
--- lspsaga
-vim.api.nvim_set_keymap("n", "<LocalLeader>n",
-                        "<Cmd>Lspsaga diagnostic_jump_next<CR>", opts)
-vim.api.nvim_set_keymap("n", "<LocalLeader>p",
-                        "<Cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
-vim.api.nvim_set_keymap("n", "<LocalLeader>h", "<Cmd>Lspsaga hover_doc<CR>",
-                        opts)
-vim.api.nvim_set_keymap("n", "<LocalLeader>s",
-                        "<Cmd>Lspsaga signature_help<CR>", opts)
-vim.api.nvim_set_keymap("n", "gh", "<Cmd>Lspsaga lsp_finder<CR>", opts)
-
--- resizing
-vim.api.nvim_set_keymap("n", "<C-Up>", ":resize -2<CR>", {silent = true})
-vim.api.nvim_set_keymap("n", "<C-Down>", ":resize +2<CR>", {silent = true})
-vim.api.nvim_set_keymap("n", "<C-Left>", ":vertical resize -2<CR>",
-                        {silent = true})
-vim.api.nvim_set_keymap("n", "<C-Right>", ":vertical resize +2<CR>",
-                        {silent = true})

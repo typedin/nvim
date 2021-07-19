@@ -64,5 +64,6 @@ return require('packer').startup(function(use)
     -- use 'hrsh7th/vim-vsnip-integ'
 
     -- Color
-    use 'shaunsingh/nord.nvim'
+    -- use 'shaunsingh/nord.nvim'
+    use "arcticicestudio/nord-vim"
 end)
