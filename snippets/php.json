@@ -1,0 +1,25 @@
+{
+  "dd": {
+    "prefix": ["dd"],
+    "body": ["dd($1);"],
+    "description": "die and dump"
+  },
+  "test": {
+    "prefix": ["test", "it"],
+    "body": [
+      "/**",
+      "* @test",
+      "*/",
+      "public function it_$1()",
+      "{",
+      "  $2",
+      "}"
+    ],
+    "description": "scaffold phpunit method"
+  },
+  "exception handling": {
+    "prefix": ["woeh"],
+    "body": ["\t\\$this->withExceptionHandling();"],
+    "description": "turn off exception handling"
+  }
+}
