@@ -40,10 +40,6 @@ return require('packer').startup(function(use)
     use "wincent/scalpel"
 
     -- GIT
-    --[[ use "junegunn/gv.vim"
-    use "mhinz/vim-signify"
-    use "tpope/vim-fugitive"
-    use "tpope/vim-rhubarb" ]]
     use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
     use "f-person/git-blame.nvim"
 

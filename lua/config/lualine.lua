@@ -15,10 +15,10 @@ require('lualine').setup {
                 'diagnostics',
                 sources = {"nvim_lsp"},
                 symbols = {
-                    error = ' ',
-                    warn = ' ',
-                    info = ' ',
-                    hint = ' '
+                    error = O.settings.symbols.error,
+                    wran = O.settings.symbols.wran,
+                    info = O.settings.symbols.info,
+                    hint = O.settings.symbols.hint
                 }
             }, 'encoding', 'filetype'
         },
