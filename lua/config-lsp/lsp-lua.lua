@@ -15,6 +15,7 @@ require("lspconfig").sumneko_lua.setup {
                 -- Setup your lua path
                 path = vim.split(package.path, ";")
             },
+
             diagnostics = {
                 -- Get the language server to recognize the `vim` global
                 globals = {"vim"}

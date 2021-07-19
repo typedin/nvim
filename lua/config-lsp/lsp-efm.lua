@@ -14,7 +14,7 @@ require("lspconfig").efm.setup {
     cmd = {DATA_PATH .. "/lspinstall/efm/efm-langserver"},
     init_options = {documentFormatting = false, codeAction = true},
     filetypes = {
-        "php", "vue", "javascript", "javascriptreact", "typescript",
+        "lua", "php", "vue", "javascript", "javascriptreact", "typescript",
         "typescriptreact", "javascript.jsx", "typescript.tsx"
     },
     settings = {
