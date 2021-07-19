@@ -1,4 +1,5 @@
 require("config.compe")
+require("config.colorizer")
 require("config.format")
 require("config.gitsigns")
 require("config.lspsaga")
