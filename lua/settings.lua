@@ -46,11 +46,10 @@ vim.opt.foldlevel = 1
 vim.opt.foldlevelstart = 99 -- start unfolded
 vim.opt.foldmethod = 'indent' -- not as cool as syntax, but faster
 
-vim.o.completeopt = "menuone,noselect,noinsert"
-
 -- whitespace
 vim.g.indent_blankline_enabled = false
 vim.opt.list = true -- show whitespace
+
 vim.opt.listchars = {
     nbsp = '⦸', -- CIRCLED REVERSE SOLIDUS (U+29B8, UTF-8: E2 A6 B8)
     extends = '»', -- RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, UTF-8: C2 BB)
@@ -58,6 +57,7 @@ vim.opt.listchars = {
     tab = '▷┅', -- WHITE RIGHT-POINTING TRIANGLE (U+25B7, UTF-8: E2 96 B7) + BOX DRAWINGS HEAVY TRIPLE DASH HORIZONTAL (U+2505, UTF-8: E2 94 85)
     trail = '•' -- BULLET (U+2022, UTF-8: E2 80 A2)
 }
+
 vim.cmd("set tabline=0")
 vim.cmd("set backspace=indent,start,eol")
 
