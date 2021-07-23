@@ -1,39 +1,62 @@
 -- /!\ mappings for compe are set in config/nvim-compe /!\
 -- Mappings.
-local opts = {noremap = true, silent = true}
-
--- LuaFormatter off
-vim.api.nvim_set_keymap("n", "<Space>", "<NOP>", opts)
-
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
--- show hide white spaces and indent blanklines
-vim.api.nvim_set_keymap("n", "<Leader>l",
-                        ":set list! | :IndentBlanklineToggle<cr>", opts)
-
-vim.api.nvim_set_keymap("n", "<Leader>e", ":NvimTreeToggle<cr>", opts) -- NvimTreeToggle
-
--- no hl
-vim.api.nvim_set_keymap("n", "<Leader>h", ":set hlsearch!<CR>", opts)
-
--- Move selected line / block of text in visual mode
-vim.api.nvim_set_keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-vim.api.nvim_set_keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
-
--- resizing
-vim.api.nvim_set_keymap("n", "<C-Up>", ":resize -2<CR>", {silent = true})
-vim.api.nvim_set_keymap("n", "<C-Down>", ":resize +2<CR>", {silent = true})
-vim.api.nvim_set_keymap("n", "<C-Left>", ":vertical resize -2<CR>",
-                        {silent = true})
-vim.api.nvim_set_keymap("n", "<C-Right>", ":vertical resize +2<CR>",
-                        {silent = true})
-
--- Open last buffer
-vim.cmd([[
-  nnoremap <LocalLeader><LocalLeader> <C-^>
-]])
 -- scalpel
 vim.cmd([[
   nmap <LocalLeader>e <Plug>(Scalpel)
 ]])
+
+local mode_mappings = {
+    -- x mode
+    -- Move selected line / block of text in visual mode
+    ["K"] = {mode = "x", cmd = ":move '<-2<CR>gv-gv"},
+    ["J"] = {mode = "x", cmd = ":move '>+1<CR>gv-gv"},
+    -- n mode
+    -- LuaFormatter off
+    ["<Space>"] = {mode = "n", cmd = "<NOP>"},
+    -- resizing
+    ["<C-Up>"] = {mode = "n", cmd = ":resize -2<CR>"},
+    ["<C-Down>"] = {mode = "n", cmd = ":resize +2<CR>"},
+    ["<C-Left>"] = {mode = "n", cmd = ":vertical resize -2<CR>"},
+    ["<C-Right>"] = {mode = "n", cmd = ":vertical resize +2<CR>"},
+    -- NvimTreeToggle
+    ["<Leader>e"] = {mode = "n", cmd = ":NvimTreeToggle<cr>"},
+    -- no hl
+    ["<Leader>h"] = {mode = "n", cmd = ":set hlsearch!<CR>"},
+    -- Open last buffer
+    ["<LocalLeader><LocalLeader>"] = {mode = "n", cmd = "<C-^>"}
+}
+
+local local_buffer_mappings = {
+    -- show hide white spaces and indent blanklines
+    ["<Leader>l"] = ":set list! | :IndentBlanklineToggle<CR>",
+    -- lsp
+    ["<LocalLeader>gD"] = "<cmd>lua vim.lsp.buf.definition()<CR>",
+    ["<LocalLeader>gd"] = "<cmd>lua vim.lsp.buf.declaration()<CR>",
+    ["<LocalLeader>gr"] = "<cmd>lua vim.lsp.buf.references()<CR>",
+    ["<LocalLeader>gi"] = "<cmd>lua vim.lsp.buf.implementation()<CR>",
+    ["<LocalLeader>gf"] = "<cmd>lua vim.lsp.buf.formatting()<CR>",
+    ["<LocalLeader>gR"] = "<cmd>lua vim.lsp.buf.rename()<CR>"
+}
+
+local mode_mapper = function(mappings)
+    local nnoremap = function(lhs, rhs)
+        local _opts = {noremap = true, silent = true}
+        vim.api.nvim_set_keymap(rhs.mode, lhs, rhs.cmd, _opts)
+    end
+
+    for lhs, rhs in pairs(mappings) do nnoremap(lhs, rhs) end
+end
+mode_mapper(mode_mappings)
+
+local local_buffer_mapper = function(mappings)
+    local nnoremap = function(lhs, rhs)
+        local _opts = {noremap = true, silent = true}
+        vim.api.nvim_buf_set_keymap(0, 'n', lhs, rhs, _opts)
+    end
+
+    for lhs, rhs in pairs(mappings) do nnoremap(lhs, rhs) end
+end
+local_buffer_mapper(local_buffer_mappings)
