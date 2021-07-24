@@ -30,38 +30,12 @@ local mode_mappings = {
     -- Telescope
     ["<C-p>"] = {mode = "n", cmd = ":Telescope find_files<cr>"},
     ["<C-t>"] = {mode = "n", cmd = ":Telescope help_tags<cr>"},
-    ["<C-b>"] = {mode = "n", cmd = ":Telescope buffers<cr>"}
-}
-
-local local_buffer_mappings = {
+    ["<C-b>"] = {mode = "n", cmd = ":Telescope buffers<cr>"},
     -- show hide white spaces and indent blanklines
-    ["<Leader>l"] = ":set list! | :IndentBlanklineToggle<CR>",
-    -- lsp
-    ["<LocalLeader>gD"] = "<cmd>lua vim.lsp.buf.definition()<CR>",
-    ["<LocalLeader>gd"] = "<cmd>lua vim.lsp.buf.declaration()<CR>",
-    ["<LocalLeader>gR"] = "<cmd>lua vim.lsp.buf.rename()<CR>",
-    ["<LocalLeader>gr"] = "<cmd>lua vim.lsp.buf.references()<CR>",
-    ["<LocalLeader>gf"] = "<cmd>lua vim.lsp.buf.formatting()<CR>",
-    ["<LocalLeader>gi"] = "<cmd>lua vim.lsp.buf.implementation()<CR>"
+    ["<LocalLeader>l"] = {
+        mode = "n",
+        cmd = ":set list! | :IndentBlanklineToggle<CR>"
+    }
 }
 
-local mode_mapper = function(mappings)
-    local nnoremap = function(lhs, rhs)
-        local _opts = {noremap = true, silent = true}
-        vim.api.nvim_set_keymap(rhs.mode, lhs, rhs.cmd, _opts)
-    end
-
-    for lhs, rhs in pairs(mappings) do nnoremap(lhs, rhs) end
-end
-mode_mapper(mode_mappings)
-
-local local_buffer_mapper = function(mappings)
-    local nnoremap = function(lhs, rhs)
-        local _opts = {noremap = true, silent = true}
-        vim.api.nvim_buf_set_keymap(0, 'n', lhs, rhs, _opts)
-    end
-
-    for lhs, rhs in pairs(mappings) do nnoremap(lhs, rhs) end
-end
-local_buffer_mapper(local_buffer_mappings)
-local fuck
+require("helpers.mappers").mode_mapper(mode_mappings)
