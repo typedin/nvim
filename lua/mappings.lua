@@ -26,7 +26,11 @@ local mode_mappings = {
     -- no hl
     ["<Leader>h"] = {mode = "n", cmd = ":set hlsearch!<CR>"},
     -- Open last buffer
-    ["<LocalLeader><LocalLeader>"] = {mode = "n", cmd = "<C-^>"}
+    ["<LocalLeader><LocalLeader>"] = {mode = "n", cmd = "<C-^>"},
+    -- Telescope
+    ["<C-p>"] = {mode = "n", cmd = ":Telescope find_files<cr>"},
+    ["<C-t>"] = {mode = "n", cmd = ":Telescope help_tags<cr>"},
+    ["<C-b>"] = {mode = "n", cmd = ":Telescope buffers<cr>"}
 }
 
 local local_buffer_mappings = {
@@ -35,10 +39,10 @@ local local_buffer_mappings = {
     -- lsp
     ["<LocalLeader>gD"] = "<cmd>lua vim.lsp.buf.definition()<CR>",
     ["<LocalLeader>gd"] = "<cmd>lua vim.lsp.buf.declaration()<CR>",
+    ["<LocalLeader>gR"] = "<cmd>lua vim.lsp.buf.rename()<CR>",
     ["<LocalLeader>gr"] = "<cmd>lua vim.lsp.buf.references()<CR>",
-    ["<LocalLeader>gi"] = "<cmd>lua vim.lsp.buf.implementation()<CR>",
     ["<LocalLeader>gf"] = "<cmd>lua vim.lsp.buf.formatting()<CR>",
-    ["<LocalLeader>gR"] = "<cmd>lua vim.lsp.buf.rename()<CR>"
+    ["<LocalLeader>gi"] = "<cmd>lua vim.lsp.buf.implementation()<CR>"
 }
 
 local mode_mapper = function(mappings)
@@ -60,3 +64,4 @@ local local_buffer_mapper = function(mappings)
     for lhs, rhs in pairs(mappings) do nnoremap(lhs, rhs) end
 end
 local_buffer_mapper(local_buffer_mappings)
+local fuck
