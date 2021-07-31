@@ -3,16 +3,35 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
+-- the primeagen
+vim.cmd([[
+  nnoremap Y y$ 
+  nnoremap n nzzzv
+  nnoremap N Nzzzv
+  nnoremap J mzJ`z
+  inoremap , ,<c-g>u
+  inoremap . .<c-g>u
+  inoremap ! !<c-g>u
+  inoremap ? ?<c-g>u
+  nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
+  nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+  vnoremap J :m '>+1<CR>gv=gv 
+  vnoremap K :m '<-2<CR>gv=gv 
+  nnoremap <leader>j :m .+1<CR>== 
+  nnoremap <leader>k :m .-2<CR>== 
+]])
 -- scalpel
 vim.cmd([[
   nmap <LocalLeader>e <Plug>(Scalpel)
+
+  imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
 ]])
 
 local mode_mappings = {
     -- x mode
     -- Move selected line / block of text in visual mode
-    ["K"] = {mode = "x", cmd = ":move '<-2<CR>gv-gv"},
     ["J"] = {mode = "x", cmd = ":move '>+1<CR>gv-gv"},
+    ["K"] = {mode = "x", cmd = ":move '<-2<CR>gv-gv"},
     -- n mode
     -- LuaFormatter off
     ["<Space>"] = {mode = "n", cmd = "<NOP>"},
