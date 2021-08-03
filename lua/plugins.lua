@@ -60,10 +60,10 @@ return require('packer').startup(function(use)
 
     -- completion
     use 'hrsh7th/nvim-compe'
-    use 'hrsh7th/vim-vsnip'
-    -- use 'hrsh7th/vim-vsnip-integ'
+    use 'L3MON4D3/LuaSnip'
 
     -- Color
     -- use 'shaunsingh/nord.nvim'
     use "arcticicestudio/nord-vim"
+    use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
 end)
