@@ -69,9 +69,17 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  LuaSnip = {
+    loaded = true,
+    path = "/home/antoine/.local/share/nvim/site/pack/packer/start/LuaSnip"
+  },
   ["astronauta.nvim"] = {
     loaded = true,
     path = "/home/antoine/.local/share/nvim/site/pack/packer/start/astronauta.nvim"
+  },
+  ["compe-tabnine"] = {
+    loaded = true,
+    path = "/home/antoine/.local/share/nvim/site/pack/packer/start/compe-tabnine"
   },
   ["folding-nvim"] = {
     loaded = true,
@@ -185,10 +193,6 @@ _G.packer_plugins = {
   ["vim-tmux-navigator"] = {
     loaded = true,
     path = "/home/antoine/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator"
-  },
-  ["vim-vsnip"] = {
-    loaded = true,
-    path = "/home/antoine/.local/share/nvim/site/pack/packer/start/vim-vsnip"
   }
 }
 
