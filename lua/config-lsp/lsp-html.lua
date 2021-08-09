@@ -1,13 +1,11 @@
- -- npm install -g vscode-html-languageserver-bin
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-  require("lspconfig").html.setup {
-    cmd = {
-      "node",
-      DATA_PATH .. "/lspinstall/html/vscode-html/html-language-features/server/dist/node/htmlServerMain.js",
-      "--stdio",
-    },
+-- npm install -g vscode-html-languageserver-bin
+require("lspconfig").html.setup {
+    capabilities = require("config-lsp/capabilities"),
+    handlers = require("config-lsp/common").handlers,
     on_attach = require("config-lsp/common").common_on_attach,
-    capabilities = capabilities,
-  }
+    cmd = {
+        "node", DATA_PATH ..
+            "/lspinstall/html/vscode-html/html-language-features/server/dist/node/htmlServerMain.js",
+        "--stdio"
+    }
+}

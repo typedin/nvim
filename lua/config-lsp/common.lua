@@ -23,4 +23,19 @@ function lsp_config.common_on_attach(client, bufnr)
     require("helpers.mappers").local_buffer_mapper(local_buffer_mappings)
 end
 
+local diagnostics = {
+    virtual_text = {spacing = 1, prefix = ""},
+    signs = true,
+    underline = true
+}
+
+lsp_config.handlers = {
+    ["textDocument/publishDiagnostics"] = vim.lsp.with(
+        vim.lsp.diagnostic.on_publish_diagnostics, {
+            virtual_text = diagnostics.virtual_text,
+            signs = diagnostics.signs,
+            underline = diagnostics.underline,
+            update_in_insert = true
+        })
+}
 return lsp_config
