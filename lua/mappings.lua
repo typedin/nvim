@@ -11,7 +11,6 @@ vim.cmd([[
 -- scalpel
 vim.cmd([[
   nmap <LocalLeader>e <Plug>(Scalpel)
-  imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
 ]])
 
 local mappings = {
@@ -40,7 +39,7 @@ local mappings = {
         -- Open last buffer
         ["<LocalLeader><LocalLeader>"] = "<C-^>",
         -- NvimTreeToggle
-        -- ["<Leader>e"] = ":NvimTreeToggle<cr>",
+        ["<Leader>e"] = ":NvimTreeToggle<cr>",
         -- LuaFormatter off
         ["<Space>"] = "<NOP>",
         -- resizing
