@@ -51,6 +51,7 @@ return require('packer').startup(function(use)
     use "machakann/vim-highlightedyank"
     use "norcalli/nvim-colorizer.lua"
     use 'pierreglaser/folding-nvim'
+    use 'sunjon/shade.nvim'
 
     use {
         'hoob3rt/lualine.nvim',
@@ -59,9 +60,11 @@ return require('packer').startup(function(use)
 
     -- completion
     use 'hrsh7th/nvim-compe'
-    use 'hrsh7th/vim-vsnip'
-    use 'hrsh7th/vim-vsnip-integ'
+    -- use 'L3MON4D3/LuaSnip'
+    use {"SirVer/ultisnips", requires = "honza/vim-snippets", opt = true}
 
     -- Color
-    use 'shaunsingh/nord.nvim'
+    -- use 'shaunsingh/nord.nvim'
+    use "arcticicestudio/nord-vim"
+    use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
 end)

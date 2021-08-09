@@ -1,39 +1,42 @@
-require'compe'.setup {
-    enabled = true,
-    autocomplete = true,
-    debug = false,
-    min_length = 2,
-    preselect = 'enable',
-    throttle_time = 80,
-    source_timeout = 200,
-    resolve_timeout = 800,
-    incomplete_delay = 400,
-    max_abbr_width = 100,
-    max_kind_width = 100,
-    max_menu_width = 100,
-    documentation = {
-        border = {'', '', '', ' ', '', '', '', ' '}, -- the border option is the same as `|help nvim_open_win|`
-        -- winhighlight = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder",
-        max_width = 120,
-        min_width = 60,
-        max_height = math.floor(vim.o.lines * 0.3),
-        min_height = 1
-    },
+local has_compe, compe = pcall(require, 'compe')
 
-    source = {
-        buffer = true,
-        path = true,
-        tags = true,
-        spell = true,
-        calc = true,
-        nvim_lsp = true,
-        nvim_lua = true,
-        vsnip = true,
-        ultisnips = true,
-        luasnip = true
+if has_compe then
+    compe.setup {
+        enabled = true,
+        autocomplete = true,
+        debug = false,
+        min_length = 1,
+        preselect = 'always',
+        throttle_time = 80,
+        source_timeout = 200,
+        incomplete_delay = 400,
+        max_abbr_width = 100,
+        max_kind_width = 100,
+        max_menu_width = 100,
+
+        documentation = {
+            border = 'single', -- see `:h nvim_open_win`
+            winhighlight = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder",
+            max_width = 120,
+            min_width = 60,
+            max_height = math.floor(vim.o.lines * 0.3),
+            min_height = 1
+        },
+
+        source = {
+            buffer = true,
+            calc = true,
+            emoji = false,
+            luasnip = false,
+            nvim_lsp = true,
+            nvim_lua = false,
+            path = true,
+            ultisnips = true,
+            vsnip = true
+        }
     }
-}
--- see https://github.com/hrsh7th/nvim-compe#how-to-use-tab-to-navigate-completion-menu
+end
+
 local t = function(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
@@ -68,16 +71,18 @@ _G.s_tab_complete = function()
     end
 end
 
-vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
--- set shortmess+=c
--- order is important
---[[ let g:lexima_no_default_rules = v:true
+-- note: there is no typo in '<LT>CR>'
+vim.cmd([[
+  let g:lexima_no_default_rules = v:true
   call lexima#set_default_rules()
   inoremap <silent><expr> <C-Space> compe#complete()
   inoremap <silent><expr> <CR>      compe#confirm(lexima#expand('<LT>CR>', 'i'))
   inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-  inoremap <silent><expr> <Tab>     compe#scroll({ 'delta': +4 })
-  inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 }) ]]
+  inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+  inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+  " imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
+]])
+vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})

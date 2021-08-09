@@ -1,4 +1,5 @@
 O = {
+    snippets = {dir = "/home/antoine/.config/nvim/snippets"},
     settings = {
         symbols = {error = '✖', warn = '⚠', info = 'ℹ', hint = '➤'}
     }

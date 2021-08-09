@@ -1,11 +1,9 @@
+-- the following settings are overriden in after/plugin/color.vim
 vim.opt.termguicolors = true
-vim.opt.background = "dark"
--- https://github.com/shaunsingh/nord.nvim
--- the following settings are overriden by the blur config file
-vim.g.nord_contrast = false
-vim.g.nord_borders = false
-vim.g.nord_disable_background = false
-require('nord').set()
+vim.o.background = "dark" -- or "light" for light mode
+vim.g.gruvbox_contrast_dark = "hard" -- or "light" for light mode
+
+vim.cmd([[colorscheme gruvbox]])
 
 vim.cmd([[
   augroup BgHighlight

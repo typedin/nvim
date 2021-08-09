@@ -1,50 +1,65 @@
 -- /!\ mappings for compe are set in config/nvim-compe /!\
 -- Mappings.
-local opts = {noremap = true, silent = true}
-
--- LuaFormatter off
-vim.api.nvim_set_keymap("n", "<Space>", "<NOP>", opts)
-
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
--- show hide white spaces and indent blanklines
-vim.api.nvim_set_keymap("n", "<Leader>l",
-                        ":set list! | :IndentBlanklineToggle<cr>", opts)
-
-vim.api.nvim_set_keymap("n", "<Leader>e", ":NvimTreeToggle<cr>", opts) -- NvimTreeToggle
-
--- no hl
-vim.api.nvim_set_keymap("n", "<Leader>h", ":set hlsearch!<CR>", opts)
-
--- Move selected line / block of text in visual mode
-vim.api.nvim_set_keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-vim.api.nvim_set_keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
-
--- Open last buffer
+-- the primeagen
 vim.cmd([[
-  nnoremap <LocalLeader><LocalLeader> <C-^>
+  nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
+  nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 ]])
 -- scalpel
 vim.cmd([[
   nmap <LocalLeader>e <Plug>(Scalpel)
 ]])
 
--- lspsaga
-vim.api.nvim_set_keymap("n", "<LocalLeader>n",
-                        "<Cmd>Lspsaga diagnostic_jump_next<CR>", opts)
-vim.api.nvim_set_keymap("n", "<LocalLeader>p",
-                        "<Cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
-vim.api.nvim_set_keymap("n", "<LocalLeader>h", "<Cmd>Lspsaga hover_doc<CR>",
-                        opts)
-vim.api.nvim_set_keymap("n", "<LocalLeader>s",
-                        "<Cmd>Lspsaga signature_help<CR>", opts)
-vim.api.nvim_set_keymap("n", "gh", "<Cmd>Lspsaga lsp_finder<CR>", opts)
-
--- resizing
-vim.api.nvim_set_keymap("n", "<C-Up>", ":resize -2<CR>", {silent = true})
-vim.api.nvim_set_keymap("n", "<C-Down>", ":resize +2<CR>", {silent = true})
-vim.api.nvim_set_keymap("n", "<C-Left>", ":vertical resize -2<CR>",
-                        {silent = true})
-vim.api.nvim_set_keymap("n", "<C-Right>", ":vertical resize +2<CR>",
-                        {silent = true})
+local mappings = {
+    ["i"] = {
+        [","] = ",<c-g>u",
+        ["."] = ".<c-g>u",
+        ["?"] = "?<c-g>u",
+        ["!"] = "!<c-g>u"
+    },
+    ["v"] = {
+        -- Move selected line / block of text in visual mode
+        ["J"] = ":m '>+1<CR>gv=gv",
+        ["K"] = ":m '<-2<CR>gv=gv"
+    },
+    ["x"] = {
+        -- Move selected line / block of text in visual mode
+        ["J"] = ":move '>+1<CR>gv-gv",
+        ["K"] = ":move '<-2<CR>gv-gv"
+    },
+    ["n"] = {
+        -- Move selected line / block of text in visual mode
+        ["<leader>j"] = ":m .+1<CR>==",
+        ["<leader>k"] = ":m .-2<CR>==",
+        -- no hl
+        ["<Leader>h"] = ":set hlsearch!<CR>",
+        -- Open last buffer
+        ["<LocalLeader><LocalLeader>"] = "<C-^>",
+        -- NvimTreeToggle
+        ["<Leader>e"] = ":NvimTreeToggle<cr>",
+        -- LuaFormatter off
+        ["<Space>"] = "<NOP>",
+        -- resizing
+        ["<C-Up>"] = ":resize -2<CR>",
+        ["<C-Down>"] = ":resize +2<CR>",
+        ["<C-Left>"] = ":vertical resize -2<CR>",
+        ["<C-Right>"] = ":vertical resize +2<CR>",
+        -- show hide white spaces and indent blanklines
+        ["<LocalLeader>l"] = ":set list! | :IndentBlanklineToggle<CR>",
+        -- Telescope
+        ["<C-p>"] = ":Telescope find_files<cr>",
+        ["<C-t>"] = ":Telescope help_tags<cr>",
+        ["<C-b>"] = ":Telescope buffers<cr>",
+        -- the primeagen
+        ["Y"] = "y$",
+        ["n"] = "nzzzv",
+        ["N"] = "Nzzzv",
+        ["J"] = "mzJ`z" -- join lines but leave cursor in place
+    }
+}
+for mode, value in pairs(mappings) do
+    require("helpers.mappers").mode_mapper(mode, value)
+end
