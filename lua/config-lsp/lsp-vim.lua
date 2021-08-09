@@ -1,6 +1,6 @@
 -- npm install -g vim-language-server
 require("lspconfig").vimls.setup {
-    capabilities = require("config-lsp/capabilities"),
+    capabilities = require("config-lsp/common").capabilities,
     handlers = require("config-lsp/common").handlers,
     on_attach = require("config-lsp/common").common_on_attach,
     cmd = {

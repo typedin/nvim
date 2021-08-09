@@ -1,5 +1,5 @@
 local local_buffer_mappings = {
-    -- lspsaga 
+    -- lspsaga
     -- must be attached to lsp_config
     -- commented by me
     ["<LocalLeader>f"] = "<cmd>Lspsaga lsp_finder<CR>",
@@ -23,19 +23,15 @@ function lsp_config.common_on_attach(client, bufnr)
     require("helpers.mappers").local_buffer_mapper(local_buffer_mappings)
 end
 
-local diagnostics = {
-    virtual_text = {spacing = 1, prefix = ""},
-    signs = true,
-    underline = true
-}
-
 lsp_config.handlers = {
     ["textDocument/publishDiagnostics"] = vim.lsp.with(
         vim.lsp.diagnostic.on_publish_diagnostics, {
-            virtual_text = diagnostics.virtual_text,
-            signs = diagnostics.signs,
-            underline = diagnostics.underline,
+            virtual_text = {spacing = 0, prefix = "■"},
+            signs = true,
+            underline = true,
             update_in_insert = true
         })
 }
+lsp_config.capabilities = require("config-lsp/capabilities")
+
 return lsp_config
