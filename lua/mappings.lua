@@ -40,7 +40,7 @@ local mappings = {
         -- Open last buffer
         ["<LocalLeader><LocalLeader>"] = "<C-^>",
         -- NvimTreeToggle
-        ["<Leader>e"] = ":NvimTreeToggle<cr>",
+        -- ["<Leader>e"] = ":NvimTreeToggle<cr>",
         -- LuaFormatter off
         ["<Space>"] = "<NOP>",
         -- resizing

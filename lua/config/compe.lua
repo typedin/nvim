@@ -1,15 +1,4 @@
 local has_compe, compe = pcall(require, 'compe')
-vim.o.completeopt = "menuone,noselect"
-
-vim.cmd([[
-  let g:lexima_no_default_rules = v:true
-  call lexima#set_default_rules()
-  inoremap <silent><expr> <C-Space> compe#complete()
-  inoremap <silent><expr> <CR>      compe#confirm(lexima#expand('<LT>CR>', 'i'))
-  inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-  inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
-  inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
-]])
 
 if has_compe then
     compe.setup {
@@ -37,12 +26,12 @@ if has_compe then
         source = {
             buffer = true,
             calc = true,
-            emoji = true,
+            emoji = false,
             luasnip = true,
             nvim_lsp = true,
             nvim_lua = false,
             path = true,
-            ultisnips = false,
+            ultisnips = true,
             vsnip = false
         }
     }
