@@ -1,6 +1,6 @@
 -- npm install -g vscode-json-languageserver
 require("lspconfig").jsonls.setup {
-    capabilities = require("config-lsp/capabilities"),
+    capabilities = require("config-lsp/common").capabilities,
     on_attach = require("config-lsp/common").common_on_attach,
     handlers = require("config-lsp/common").handlers,
     cmd = {

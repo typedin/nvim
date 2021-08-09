@@ -35,8 +35,8 @@ if python.isort then table.insert(python_arguments, isort) end
 
 -- npm i -g pyright
 require("lspconfig").pyright.setup {
-    capabilities = require("config-lsp/capabilities"),
     handlers = require("config-lsp/common").handlers,
+    capabilities = require("config-lsp/common").capabilities,
     on_attach = require("config-lsp/common").common_on_attach,
     cmd = {
         DATA_PATH .. "/lspinstall/python/node_modules/.bin/pyright-langserver",
