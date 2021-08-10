@@ -15,14 +15,21 @@ require("lspconfig").efm.setup {
     capabilities = require("config-lsp/common").capabilities,
     cmd = {DATA_PATH .. "/lspinstall/efm/efm-langserver"},
     -- init_options = {documentFormatting = false, codeAction = false},
+    -- LuaFormatter off
     filetypes = {
-        "python", "php", "vue", "javascript", "javascriptreact", "typescript",
-        "typescriptreact", "javascript.jsx", "typescript.tsx"
+      "javascript",
+      "javascript.jsx",
+      "javascriptreact",
+      "php",
+      "python",
+      "typescript",
+      "typescript.tsx",
+      "typescriptreact",
     },
+    -- LuaFormatter on
     settings = {
         rootMarkers = {".git/", "package.json"},
         languages = {
-            vue = tsserver_args,
             javascript = tsserver_args,
             javascriptreact = tsserver_args,
             ["javascript.jsx"] = tsserver_args,
