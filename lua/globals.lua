@@ -8,10 +8,11 @@ O = {
     snippets = {dir = CONFIG_PATH .. "/snippets"},
     settings = {
         symbols = {
-            error = '💣',
-            hint = '💡',
-            info = 'ℹ️',
-            warn = '⚠️'
+            error = '⭙',
+            hint = '➲',
+            info = '🛈',
+            warn = '⚠',
+            bug = ' '
         }
     }
 }

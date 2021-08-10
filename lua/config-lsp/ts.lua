@@ -19,6 +19,7 @@
     }
 }
 local lsp_config = {}
+
 function lsp_config.tsserver_on_attach(client, bufnr)
     -- lsp_config.common_on_attach(client, bufnr)
     client.resolved_capabilities.document_formatting = false -- setting true here causes a choice between efm or tsserver when formatting
