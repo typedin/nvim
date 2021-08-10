@@ -1,3 +1,4 @@
+---@diagnostic disable: unused-local
 local local_buffer_mappings = {
     -- lspsaga
     -- must be attached to lsp_config
