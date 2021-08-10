@@ -40,8 +40,9 @@ return require('packer').startup(function(use)
     use "wincent/scalpel"
 
     -- GIT
-    use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
     use "f-person/git-blame.nvim"
+    use "tpope/vim-fugitive"
+    use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
 
     -- autopair
     use "cohama/lexima.vim"
