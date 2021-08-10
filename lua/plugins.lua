@@ -60,8 +60,9 @@ return require('packer').startup(function(use)
 
     -- completion
     use 'hrsh7th/nvim-compe'
-    -- use 'L3MON4D3/LuaSnip'
-    use {"SirVer/ultisnips", requires = "honza/vim-snippets", opt = true}
+    use 'hrsh7th/vim-vsnip'
+    use 'hrsh7th/vim-vsnip-integ'
+    use "rafamadriz/friendly-snippets"
 
     -- Color
     -- use 'shaunsingh/nord.nvim'
