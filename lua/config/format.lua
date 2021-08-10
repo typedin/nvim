@@ -30,6 +30,7 @@ require('formatter').setup({
         cpp = {c_lang},
         typescript = {prettier, eslint},
         javascript = {prettier, eslint},
+        vue = {prettier, eslint},
         python = {
             function()
                 return {exe = "black", args = {"-"}, stdin = true}
@@ -48,14 +49,6 @@ require('formatter').setup({
         }
     }
 })
-
---[[
-  autocmd BufWritePost *.lua FormatWrite
-  autocmd BufWritePost *.c FormatWrite
-  autocmd BufWritePost *.cpp FormatWrite
-  autocmd BufWritePost *.php FormatWrite
-  autocmd BufWritePost *.python FormatWrite 
-]]
 
 vim.api.nvim_exec([[
   augroup FormatAutogroup
