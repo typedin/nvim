@@ -57,7 +57,9 @@ local mappings = {
         ["Y"] = "y$",
         ["n"] = "nzzzv",
         ["N"] = "Nzzzv",
-        ["J"] = "mzJ`z" -- join lines but leave cursor in place
+        ["J"] = "mzJ`z", -- join lines but leave cursor in place
+        -- testing
+        ["tcr"] = ":call ToggleStrategy()<CR>"
     }
 }
 for mode, value in pairs(mappings) do

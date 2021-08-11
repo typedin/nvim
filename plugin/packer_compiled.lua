@@ -121,6 +121,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/antoine/.local/share/nvim/site/pack/packer/start/lush.nvim"
   },
+  neomake = {
+    loaded = true,
+    path = "/home/antoine/.local/share/nvim/site/pack/packer/start/neomake"
+  },
   ["nord-vim"] = {
     loaded = true,
     path = "/home/antoine/.local/share/nvim/site/pack/packer/start/nord-vim"
@@ -198,9 +202,17 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/antoine/.local/share/nvim/site/pack/packer/start/vim-surround"
   },
+  ["vim-test"] = {
+    loaded = true,
+    path = "/home/antoine/.local/share/nvim/site/pack/packer/start/vim-test"
+  },
   ["vim-tmux-navigator"] = {
     loaded = true,
     path = "/home/antoine/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator"
+  },
+  ["vim-ultest"] = {
+    loaded = true,
+    path = "/home/antoine/.local/share/nvim/site/pack/packer/start/vim-ultest"
   },
   ["vim-vsnip"] = {
     loaded = true,
@@ -209,6 +221,14 @@ _G.packer_plugins = {
   ["vim-vsnip-integ"] = {
     loaded = true,
     path = "/home/antoine/.local/share/nvim/site/pack/packer/start/vim-vsnip-integ"
+  },
+  ["vim-vspec"] = {
+    loaded = true,
+    path = "/home/antoine/.local/share/nvim/site/pack/packer/start/vim-vspec"
+  },
+  vimux = {
+    loaded = true,
+    path = "/home/antoine/.local/share/nvim/site/pack/packer/start/vimux"
   }
 }
 
@@ -217,12 +237,12 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType typescript.tsx ++once lua require("packer.load")({'nvim-lsp-ts-utils'}, { ft = "typescript.tsx" }, _G.packer_plugins)]]
 vim.cmd [[au FileType javascript ++once lua require("packer.load")({'nvim-lsp-ts-utils'}, { ft = "javascript" }, _G.packer_plugins)]]
 vim.cmd [[au FileType javascriptreact ++once lua require("packer.load")({'nvim-lsp-ts-utils'}, { ft = "javascriptreact" }, _G.packer_plugins)]]
 vim.cmd [[au FileType javascript.jsx ++once lua require("packer.load")({'nvim-lsp-ts-utils'}, { ft = "javascript.jsx" }, _G.packer_plugins)]]
 vim.cmd [[au FileType typescript ++once lua require("packer.load")({'nvim-lsp-ts-utils'}, { ft = "typescript" }, _G.packer_plugins)]]
 vim.cmd [[au FileType typescriptreact ++once lua require("packer.load")({'nvim-lsp-ts-utils'}, { ft = "typescriptreact" }, _G.packer_plugins)]]
-vim.cmd [[au FileType typescript.tsx ++once lua require("packer.load")({'nvim-lsp-ts-utils'}, { ft = "typescript.tsx" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end

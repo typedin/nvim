@@ -59,6 +59,15 @@ return require('packer').startup(function(use)
         requires = {'kyazdani42/nvim-web-devicons', opt = true}
     }
 
+    -- tdd
+    use "neomake/neomake"
+    use "kana/vim-vspec"
+    use {
+        "rcarriga/vim-ultest",
+        run = ":UpdateRemotePlugins",
+        requires = {"vim-test/vim-test", "preservim/vimux"}
+    }
+
     -- completion
     use 'hrsh7th/nvim-compe'
     use 'hrsh7th/vim-vsnip'
