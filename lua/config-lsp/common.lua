@@ -30,7 +30,7 @@ lsp_config.handlers = {
             virtual_text = {spacing = 0, prefix = "■"},
             signs = false,
             underline = true,
-            update_in_insert = true
+            update_in_insert = false
         })
 }
 
