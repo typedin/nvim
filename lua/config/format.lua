@@ -30,6 +30,8 @@ require('formatter').setup({
         cpp = {c_lang},
         typescript = {prettier, eslint},
         javascript = {prettier, eslint},
+        javascriptreact = {prettier, eslint},
+        typescriptreact = {prettier, eslint},
         vue = {prettier, eslint},
         python = {
             function()
