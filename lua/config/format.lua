@@ -16,6 +16,13 @@ local prettier = function()
         stdin = true
     }
 end
+local json = function()
+    return {
+        exe = "jsonlint",
+        args = {"--stdin-kilename", vim.api.nvim_buf_get_name(0)},
+        stdin = true
+    }
+end
 local eslint = function()
     return {
         exe = "eslint_d",
@@ -23,16 +30,36 @@ local eslint = function()
         stdin = true
     }
 end
+
+local markdown = function()
+    return {
+        exe = "/home/antoine/.rbenv/shims/mdl",
+        args = {vim.api.nvim_buf_get_name(0)},
+        stdin = true
+    }
+end
+
+local css = function()
+    return {
+        exe = "stylelint",
+        args = {"--fix", vim.api.nvim_buf_get_name(0)},
+        stdin = false
+    }
+end
+
 require('formatter').setup({
     logging = true,
     filetype = {
         c = {c_lang},
         cpp = {c_lang},
+        css = {css},
         typescript = {prettier, eslint},
         javascript = {prettier, eslint},
         javascriptreact = {prettier, eslint},
+        json = {json},
         typescriptreact = {prettier, eslint},
         vue = {prettier, eslint},
+        markdown = {markdown},
         python = {
             function()
                 return {exe = "black", args = {"-"}, stdin = true}
@@ -57,4 +84,5 @@ vim.api.nvim_exec([[
     autocmd!
     autocmd BufWritePost * FormatWrite
   augroup END
+  autocmd BufWritePre * %s/\s\+$//e
 ]], true)
