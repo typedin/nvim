@@ -17,25 +17,25 @@ require("lspconfig").efm.setup {
     -- init_options = {documentFormatting = false, codeAction = false},
     -- LuaFormatter off
     filetypes = {
-      "javascript",
-      "javascript.jsx",
-      "javascriptreact",
       "php",
       "python",
+      --[[ "javascript",
+      "javascript.jsx",
+      "javascriptreact",
       "typescript",
       "typescript.tsx",
-      "typescriptreact",
+      "typescriptreact", ]]
     },
     -- LuaFormatter on
     settings = {
-        rootMarkers = {".git/", "package.json"},
-        languages = {
+        rootMarkers = {".git/", "package.json"}
+        --[[ languages = {
             javascript = tsserver_args,
             javascriptreact = tsserver_args,
             ["javascript.jsx"] = tsserver_args,
             typescript = tsserver_args,
             ["typescript.tsx"] = tsserver_args,
             typescriptreact = tsserver_args
-        }
+        } ]]
     }
 }

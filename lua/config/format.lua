@@ -33,9 +33,9 @@ end
 
 local markdown = function()
     return {
-        exe = "/home/antoine/.rbenv/shims/mdl",
-        args = {vim.api.nvim_buf_get_name(0)},
-        stdin = true
+        exe = "markdownlint",
+        args = {"--fix", vim.api.nvim_buf_get_name(0)},
+        stdin = false
     }
 end
 

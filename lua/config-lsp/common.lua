@@ -22,6 +22,7 @@ local lsp_config = {}
 
 function lsp_config.common_on_attach(client, bufnr)
     require("helpers.mappers").local_buffer_mapper(local_buffer_mappings)
+    client.resolved_capabilities.document_formatting = false
 end
 
 lsp_config.handlers = {
