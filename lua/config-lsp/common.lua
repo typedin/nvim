@@ -24,16 +24,32 @@ function lsp_config.common_on_attach(client, bufnr)
     require("helpers.mappers").local_buffer_mapper(local_buffer_mappings)
 end
 
-lsp_config.handlers = {
-    ["textDocument/publishDiagnostics"] = vim.lsp.with(
-        vim.lsp.diagnostic.on_publish_diagnostics, {
-            virtual_text = {spacing = 0, prefix = "■"},
-            signs = false,
-            underline = true,
-            update_in_insert = true
-        })
-}
+lsp_config.handlers = function(client, bufnr)
+    return {
+        ["textDocument/publishDiagnostics"] = vim.lsp.with(
+            vim.lsp.diagnostic.on_publish_diagnostics, {
+                signs = true,
+                update_in_insert = false,
+                virtual_text = {spacing = 2, prefix = "■"},
+                underline = true
+            })
+    }
+end
 
-lsp_config.capabilities = require("config-lsp/capabilities")
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+lsp_config.capabilities = {
+    textDocument = {
+        completion = {
+            completionItem = {
+                snippetSupport = true,
+                resolveSupport = {
+                    properties = {
+                        'documentation', 'detail', 'additionalTextEdits'
+                    }
+                }
+            }
+        }
+    }
+}
 
 return lsp_config
