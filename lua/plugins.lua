@@ -10,6 +10,9 @@ return require('packer').startup(function(use)
     use "kabouzeid/nvim-lspinstall"
     use "neovim/nvim-lspconfig"
 
+    -- rust
+    use "rust-lang/rust.vim"
+
     -- Javascript / Typescript
     use {
         "jose-elias-alvarez/nvim-lsp-ts-utils",
