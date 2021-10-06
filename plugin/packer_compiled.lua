@@ -93,10 +93,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/antoine/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
   },
-  ["gruvbox.nvim"] = {
-    loaded = true,
-    path = "/home/antoine/.local/share/nvim/site/pack/packer/start/gruvbox.nvim"
-  },
   ["indent-blankline.nvim"] = {
     loaded = true,
     path = "/home/antoine/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim"
@@ -117,17 +113,13 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/antoine/.local/share/nvim/site/pack/packer/start/lualine.nvim"
   },
-  ["lush.nvim"] = {
-    loaded = true,
-    path = "/home/antoine/.local/share/nvim/site/pack/packer/start/lush.nvim"
-  },
   neomake = {
     loaded = true,
     path = "/home/antoine/.local/share/nvim/site/pack/packer/start/neomake"
   },
-  ["nord-vim"] = {
+  ["nightfox.nvim"] = {
     loaded = true,
-    path = "/home/antoine/.local/share/nvim/site/pack/packer/start/nord-vim"
+    path = "/home/antoine/.local/share/nvim/site/pack/packer/start/nightfox.nvim"
   },
   ["nvim-colorizer.lua"] = {
     loaded = true,
@@ -150,10 +142,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/antoine/.local/share/nvim/site/pack/packer/start/nvim-lspinstall"
   },
-  ["nvim-tree.lua"] = {
-    loaded = true,
-    path = "/home/antoine/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
-  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/home/antoine/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
@@ -174,13 +162,13 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/antoine/.local/share/nvim/site/pack/packer/start/popup.nvim"
   },
+  ["rust.vim"] = {
+    loaded = true,
+    path = "/home/antoine/.local/share/nvim/site/pack/packer/start/rust.vim"
+  },
   scalpel = {
     loaded = true,
     path = "/home/antoine/.local/share/nvim/site/pack/packer/start/scalpel"
-  },
-  ["shade.nvim"] = {
-    loaded = true,
-    path = "/home/antoine/.local/share/nvim/site/pack/packer/start/shade.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
@@ -237,12 +225,12 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType javascript ++once lua require("packer.load")({'nvim-lsp-ts-utils'}, { ft = "javascript" }, _G.packer_plugins)]]
-vim.cmd [[au FileType javascriptreact ++once lua require("packer.load")({'nvim-lsp-ts-utils'}, { ft = "javascriptreact" }, _G.packer_plugins)]]
-vim.cmd [[au FileType javascript.jsx ++once lua require("packer.load")({'nvim-lsp-ts-utils'}, { ft = "javascript.jsx" }, _G.packer_plugins)]]
 vim.cmd [[au FileType typescript ++once lua require("packer.load")({'nvim-lsp-ts-utils'}, { ft = "typescript" }, _G.packer_plugins)]]
 vim.cmd [[au FileType typescriptreact ++once lua require("packer.load")({'nvim-lsp-ts-utils'}, { ft = "typescriptreact" }, _G.packer_plugins)]]
 vim.cmd [[au FileType typescript.tsx ++once lua require("packer.load")({'nvim-lsp-ts-utils'}, { ft = "typescript.tsx" }, _G.packer_plugins)]]
+vim.cmd [[au FileType javascript ++once lua require("packer.load")({'nvim-lsp-ts-utils'}, { ft = "javascript" }, _G.packer_plugins)]]
+vim.cmd [[au FileType javascriptreact ++once lua require("packer.load")({'nvim-lsp-ts-utils'}, { ft = "javascriptreact" }, _G.packer_plugins)]]
+vim.cmd [[au FileType javascript.jsx ++once lua require("packer.load")({'nvim-lsp-ts-utils'}, { ft = "javascript.jsx" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end
