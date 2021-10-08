@@ -29,9 +29,9 @@ lsp_config.handlers = function(client, bufnr)
         ["textDocument/publishDiagnostics"] = vim.lsp.with(
             vim.lsp.diagnostic.on_publish_diagnostics, {
                 signs = true,
-                update_in_insert = false,
-                virtual_text = {spacing = 2, prefix = "■"},
-                underline = true
+                underline = true,
+                virtual_text = false, -- turn off inlined messages
+                update_in_insert = false
             })
     }
 end

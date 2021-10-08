@@ -12,5 +12,6 @@ saga.init_lsp_saga {
     error_sign = O.settings.symbols.error,
     hint_sign = O.settings.symbols.hint,
     infor_sign = O.settings.symbols.info,
-    warn_sign = O.settings.symbols.warn
+    warn_sign = O.settings.symbols.warn,
+    border_style = "single"
 }
