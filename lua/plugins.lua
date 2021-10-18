@@ -50,12 +50,14 @@ return require('packer').startup(function(use)
     -- autopair
     use "cohama/lexima.vim"
 
+    -- color theme
+    use 'EdenEast/nightfox.nvim'
+
     -- eye candy
     use "lukas-reineke/indent-blankline.nvim"
     use "machakann/vim-highlightedyank"
     use "norcalli/nvim-colorizer.lua"
     use 'pierreglaser/folding-nvim'
-    -- use 'sunjon/shade.nvim'
 
     use {
         'hoob3rt/lualine.nvim',
@@ -76,7 +78,4 @@ return require('packer').startup(function(use)
     use 'hrsh7th/vim-vsnip'
     use 'hrsh7th/vim-vsnip-integ'
     use "rafamadriz/friendly-snippets"
-
-    -- color theme
-    use 'EdenEast/nightfox.nvim'
 end)
