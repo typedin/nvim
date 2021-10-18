@@ -10,6 +10,9 @@ return require('packer').startup(function(use)
     use "kabouzeid/nvim-lspinstall"
     use "neovim/nvim-lspconfig"
 
+    -- rust
+    use "rust-lang/rust.vim"
+
     -- Javascript / Typescript
     use {
         "jose-elias-alvarez/nvim-lsp-ts-utils",
@@ -47,12 +50,14 @@ return require('packer').startup(function(use)
     -- autopair
     use "cohama/lexima.vim"
 
+    -- color theme
+    use 'EdenEast/nightfox.nvim'
+
     -- eye candy
     use "lukas-reineke/indent-blankline.nvim"
     use "machakann/vim-highlightedyank"
     use "norcalli/nvim-colorizer.lua"
     use 'pierreglaser/folding-nvim'
-    use 'sunjon/shade.nvim'
 
     use {
         'hoob3rt/lualine.nvim',
@@ -73,9 +78,4 @@ return require('packer').startup(function(use)
     use 'hrsh7th/vim-vsnip'
     use 'hrsh7th/vim-vsnip-integ'
     use "rafamadriz/friendly-snippets"
-
-    -- Color
-    -- use 'shaunsingh/nord.nvim'
-    use "arcticicestudio/nord-vim"
-    use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
 end)

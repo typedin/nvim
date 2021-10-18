@@ -1,9 +1,18 @@
--- the following settings are overriden in after/plugin/color.vim
 vim.opt.termguicolors = true
-vim.o.background = "dark" -- or "light" for light mode
-vim.g.gruvbox_contrast_dark = "hard" -- or "light" for light mode
+local nightfox = require("nightfox")
 
-vim.cmd([[colorscheme gruvbox]])
+-- @see here : https://github.com/EdenEast/nightfox.nvim
+nightfox.setup({
+    fox = "nightfox",
+    transparent = true,
+    terminal_color = true,
+    styles = {
+        comments = "italic", -- change style of comments to be italic
+        keywords = "bold", -- change style of keywords to be bold
+        functions = "italic,bold" -- styles can be a comma separated list
+    }
+})
+nightfox.load()
 
 vim.cmd([[
   augroup BgHighlight
