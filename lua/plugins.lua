@@ -41,6 +41,10 @@ return require('packer').startup(function(use)
     use "christoomey/vim-tmux-navigator"
     use "tpope/vim-surround"
     use "wincent/scalpel"
+    use {
+        'ThePrimeagen/harpoon',
+        requires = {'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim'}
+    }
 
     -- GIT
     use "f-person/git-blame.nvim"
