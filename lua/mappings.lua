@@ -52,7 +52,10 @@ local mappings = {
         -- Telescope
         ["<C-p>"] = ":Telescope find_files<cr>",
         ["<C-t>"] = ":Telescope help_tags<cr>",
-        ["<C-b>"] = ":Telescope buffers<cr>",
+        -- Harpoon
+        ["<C-e>"] = ":lua require('harpoon.ui').toggle_quick_menu()<cr>",
+        ["<Leader>af"] = ":lua require('harpoon.mark').add_file()<cr>",
+        -- ["<C-i>"] = ":lua require('harpoon.ui').toggle_quick_menu()<cr>",
         -- the primeagen
         ["Y"] = "y$",
         ["n"] = "nzzzv",
