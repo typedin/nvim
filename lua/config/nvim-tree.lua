@@ -23,11 +23,15 @@ require'nvim-tree'.setup {
     -- updates the root directory of the tree on `DirChanged` (when your run `:cd` usually)
     update_cwd = false,
     -- show lsp diagnostics in the signcolumn
-    lsp_diagnostics = true,
+    diagnostics = {
+        enable = true,
+        icons = {hint = "", info = "", warning = "", error = ""}
+    },
+    nvim_tree_ignore = {'.git', 'node_modules', '.cache', '*.un~', 'shada'},
     -- update the focused file on `BufEnter`, un-collapses the folders recursively until it finds the file
     update_focused_file = {
         -- enables the feature
-        enable = false,
+        enable = true,
         -- update the root directory of the tree to the one of the folder containing the file if the file is not under the current root directory
         -- only relevant when `update_focused_file.enable` is true
         update_cwd = false,

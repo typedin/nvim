@@ -129,7 +129,7 @@ if vim.fn.filereadable('/usr/bin/python') == 1 then
 end
 
 -- NvimTree
-vim.g.nvim_tree_ignore = {'.git', 'node_modules', '.cache', '*.un~', 'shada'}
+-- vim.g.nvim_tree_ignore = {'.git', 'node_modules', '.cache', '*.un~', 'shada'}
 vim.g.nvim_tree_gitignore = 1
 vim.g.nvim_tree_git_hl = 1
 vim.g.nvim_tree_highlight_opened_files = 1
