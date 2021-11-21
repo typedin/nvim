@@ -1,13 +1,20 @@
 -- /!\ mappings for compe are set in config/nvim-compe /!\
 -- Mappings.
-vim.g.mapleader = " "
-vim.g.maplocalleader = ","
+vim.g.mapleader = " " -- leader should act for anything that interacts with outside
+vim.g.maplocalleader = "," -- LocalLeader should act for anything buffer related
+
+-- quickly open config files
+vim.cmd([[
+    nmap <leader>ve :edit ~/.config/nvim/init.lua<cr>
+    nmap <leader>vm :edit ~/.config/nvim/lua/mappings.lua<cr>
+]])
 
 -- the primeagen
 vim.cmd([[
   nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
   nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 ]])
+
 -- scalpel
 vim.cmd([[
   nmap <LocalLeader>e <Plug>(Scalpel)
@@ -23,7 +30,10 @@ local mappings = {
     ["v"] = {
         -- Move selected line / block of text in visual mode
         ["J"] = ":m '>+1<CR>gv=gv",
-        ["K"] = ":m '<-2<CR>gv=gv"
+        ["K"] = ":m '<-2<CR>gv=gv",
+        -- Reselect visual selection after indenting
+        ["<"] = "<gv",
+        [">"] = ">gv"
     },
     ["x"] = {
         -- Move selected line / block of text in visual mode

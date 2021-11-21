@@ -11,7 +11,7 @@ vim.o.completeopt = "menuone,noselect"
 
 vim.opt.showcmd = false
 vim.opt.mouse = "a" -- Enable your mouse
-vim.opt.signcolumn = "yes:1" -- Always show the signcolumn, otherwise it would shift the text each time
+vim.opt.signcolumn = "yes:2" -- Always show the signcolumn, otherwise it would shift the text each time
 vim.opt.emoji = false -- don't assume all emoji are double width
 
 vim.opt.scrolloff = 10 -- start scrolling 3 lines before edge of viewportvim.opt.modelines
@@ -64,7 +64,7 @@ vim.cmd("set backspace=indent,start,eol")
 
 vim.opt.shell = 'sh' -- shell to use for `!`, `:!`, `system()` etc.
 vim.opt.shiftround = false -- don't always indent by multiple of shiftwidth
-vim.opt.shiftwidth = 2 -- spaces per tab (when shifting)
+vim.opt.shiftwidth = 4 -- spaces per tab (when shifting)
 vim.opt.shortmess = vim.opt.shortmess + 'A' -- ignore annoying swapfile messages
 vim.opt.shortmess = vim.opt.shortmess + 'I' -- no splash screen
 vim.opt.shortmess = vim.opt.shortmess + 'O' -- file-read message overwrites previous
@@ -97,9 +97,10 @@ vim.opt.suffixes = vim.opt.suffixes - '.h' -- don't sort header files at lower p
 vim.opt.swapfile = false -- don't create swap files
 vim.opt.switchbuf = 'usetab' -- try to reuse windows/tabs when switching buffers
 vim.opt.synmaxcol = 200 -- don't bother syntax highlighting long lines
-vim.opt.tabstop = 2 -- spaces per tab
+vim.opt.tabstop = 4 -- spaces per tab
 vim.opt.termguicolors = true -- use guifg/guibg instead of ctermfg/ctermbg in terminal
 vim.opt.textwidth = 80 -- automatically hard wrap at 80 columns
+vim.opt.hidden = true
 
 if root then
     vim.opt.undofile = false -- don't create root-owned files
@@ -110,7 +111,8 @@ else
 end
 
 vim.opt.updatecount = 80 -- update swapfiles every 80 typed chars
-vim.opt.updatetime = 2000 -- CursorHold interval
+vim.opt.updatetime = 300 -- CursorHold interval / Reduce time for highlighting other references
+vim.opt.redrawtime = 10000 -- Allow more time for loading syntax on large files
 vim.opt.viewdir = config .. '/view' -- where to store files for :mkview
 vim.opt.viewoptions = 'cursor,folds' -- save/restore just these (with `:{mk,load}view`)
 vim.opt.virtualedit = 'block' -- allow cursor to move where there is no text in visual block mode
