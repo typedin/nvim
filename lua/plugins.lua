@@ -26,8 +26,14 @@ return require('packer').startup(function(use)
     use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
 
     -- formatting
-    use 'b3nj5m1n/kommentary'
+    use {
+        'numToStr/Comment.nvim',
+        config = function() require('Comment').setup() end
+    }
     use 'mhartington/formatter.nvim'
+
+    -- editorconfig
+    use 'editorconfig/editorconfig-vim'
 
     -- fuzzy
     use {
