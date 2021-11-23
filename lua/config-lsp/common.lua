@@ -25,19 +25,18 @@ function lsp_config.common_on_attach(client, bufnr)
     client.resolved_capabilities.document_formatting = false
 end
 
-lsp_config.handlers = function(client, bufnr)
-    return {
-        ["textDocument/publishDiagnostics"] = vim.lsp.with(
-            vim.lsp.diagnostic.on_publish_diagnostics, {
-                signs = true,
-                underline = true,
-                virtual_text = false, -- turn off inlined messages
-                update_in_insert = false
-            })
-    }
-end
+lsp_config.handlers = {
+    ["textDocument/publishDiagnostics"] = vim.lsp.with(
+        vim.lsp.diagnostic.on_publish_diagnostics, {
+            signs = true,
+            underline = true,
+            virtual_text = false, -- turn off inlined messages
+            update_in_insert = false
+        })
+}
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+
 lsp_config.capabilities = {
     textDocument = {
         completion = {
