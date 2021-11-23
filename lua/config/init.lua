@@ -1,5 +1,7 @@
 require("config.colorizer")
 require("config.compe")
+require("config.comment")
+require("config.editorconfig")
 require("config.format")
 require("config.git-blame")
 require("config.gitsigns")
