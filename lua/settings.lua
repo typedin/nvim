@@ -7,7 +7,7 @@ vim.opt.encoding = "utf-8"
 vim.o.fileencoding = "utf-8" -- The encoding written to file
 vim.opt.autoindent = true
 vim.opt.hlsearch = true
-vim.o.completeopt = "menuone,noselect"
+vim.o.completeopt = "menuone,noselect,noinsert"
 
 vim.opt.showcmd = false
 vim.opt.mouse = "a" -- Enable your mouse
