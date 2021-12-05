@@ -42,10 +42,10 @@ local mappings = {
     },
     ["n"] = {
         -- Move selected line / block of text in visual mode
-        ["<leader>j"] = ":m .+1<CR>==",
-        ["<leader>k"] = ":m .-2<CR>==",
+        ["<LocalLeader>j"] = ":m .+1<CR>==",
+        ["<LocalLeader>k"] = ":m .-2<CR>==",
         -- no hl
-        ["<Leader>h"] = ":set hlsearch!<CR>",
+        ["<LocalLeader>th"] = ":set hlsearch!<CR>",
         -- Open last buffer
         ["<LocalLeader><LocalLeader>"] = "<C-^>",
         -- NvimTreeToggle

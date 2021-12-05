@@ -6,7 +6,13 @@ return require('packer').startup(function(use)
     use "tjdevries/astronauta.nvim"
 
     -- LSP
-    use "glepnir/lspsaga.nvim"
+    --
+    --
+    -- I'm using the fork to get rid of some weird errors
+    -- use "glepnir/lspsaga.nvim"
+    --
+    --
+    use "tami5/lspsaga.nvim"
     use "kabouzeid/nvim-lspinstall"
     use "neovim/nvim-lspconfig"
 

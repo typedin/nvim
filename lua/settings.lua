@@ -111,7 +111,7 @@ else
 end
 
 vim.opt.updatecount = 80 -- update swapfiles every 80 typed chars
-vim.opt.updatetime = 300 -- CursorHold interval / Reduce time for highlighting other references
+vim.opt.updatetime = 500 -- CursorHold interval / Reduce time for highlighting other references
 vim.opt.redrawtime = 10000 -- Allow more time for loading syntax on large files
 vim.opt.viewdir = config .. '/view' -- where to store files for :mkview
 vim.opt.viewoptions = 'cursor,folds' -- save/restore just these (with `:{mk,load}view`)
@@ -132,7 +132,6 @@ end
 
 -- NvimTree
 -- vim.g.nvim_tree_ignore = {'.git', 'node_modules', '.cache', '*.un~', 'shada'}
-vim.g.nvim_tree_gitignore = 1
 vim.g.nvim_tree_git_hl = 1
 vim.g.nvim_tree_highlight_opened_files = 1
 vim.g.nvim_tree_disable_window_picker = 1

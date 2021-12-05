@@ -28,6 +28,7 @@ require'nvim-tree'.setup {
         icons = {hint = "", info = "", warning = "", error = ""}
     },
     nvim_tree_ignore = {'.git', 'node_modules', '.cache', '*.un~', 'shada'},
+    nvim_tree_gitignore = true,
     -- update the focused file on `BufEnter`, un-collapses the folders recursively until it finds the file
     update_focused_file = {
         -- enables the feature
