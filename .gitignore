@@ -2,3 +2,5 @@ backup/
 ./plugin
 ./plugin/
 shada
+./shada
+./shada.*
