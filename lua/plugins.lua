@@ -74,6 +74,8 @@ return require('packer').startup(function(use)
     use "machakann/vim-highlightedyank"
     use "norcalli/nvim-colorizer.lua"
     use 'pierreglaser/folding-nvim'
+    -- syntax highlighting
+    use "jwalton512/vim-blade"
 
     use {
         'hoob3rt/lualine.nvim',

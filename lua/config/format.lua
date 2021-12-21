@@ -25,6 +25,16 @@ local formatterConfig = {
         -- black
         function() return {exe = "black", args = {"-"}, stdin = true} end
     },
+    blade = {
+        -- blade-formatter
+        function()
+            return {
+                exe = "blade-formatter",
+                args = {"--write", "--stdin", vim.api.nvim_buf_get_name(0)},
+                stdin = true
+            }
+        end
+    },
     lua = {
         -- luafmt
         function()

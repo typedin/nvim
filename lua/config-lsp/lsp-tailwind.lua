@@ -5,8 +5,11 @@ require("lspconfig").tailwindcss.setup {
         "--stdio"
     },
     filetypes = {
-        "vue", "html", "javascriptreact", "javascript.jsx", "typescriptreact"
+        "blade", "vue", "html", "javascriptreact", "javascript.jsx",
+        "typescriptreact"
     },
     -- LuaFormatter off
-    root_dir = require("lspconfig/util").root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git")
+    root_dir = require("lspconfig/util").root_pattern("package.json",
+                                                      "tsconfig.json",
+                                                      "jsconfig.json", ".git")
 }
