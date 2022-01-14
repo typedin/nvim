@@ -2,18 +2,9 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
-    -- use lua in ftplugin
-    use "tjdevries/astronauta.nvim"
-
     -- LSP
-    --
-    --
-    -- I'm using the fork to get rid of some weird errors
-    -- use "glepnir/lspsaga.nvim"
-    --
-    --
     use "tami5/lspsaga.nvim"
-    use "kabouzeid/nvim-lspinstall"
+    use "williamboman/nvim-lsp-installer"
     use "neovim/nvim-lspconfig"
 
     -- rust
