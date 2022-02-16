@@ -21,7 +21,7 @@ vim.opt.relativenumber = true -- show relative numbers in gutter
 
 vim.opt.joinspaces = false -- don't autoinsert two spaces after '.', '?', '!' for join command
 vim.opt.lazyredraw = true -- don't bother updating screen during macro playback
-vim.opt.linebreak = true -- wrap long lines at characters in 'breakat'
+vim.opt.linebreak = false -- wrap long lines at characters in 'breakat'
 vim.g.highlightedyank_highlight_duration = 100
 
 -- tabs
@@ -30,7 +30,7 @@ vim.cmd("set sw=4") -- Change the number of space characters inserted for indent
 vim.opt.expandtab = true -- Converts tabs to spaces
 vim.opt.smartindent = true -- Makes indenting smart
 
-vim.o.wrap = true
+-- vim.o.wrap = true
 vim.o.cursorline = true
 
 vim.opt.cmdheight = 1
@@ -99,7 +99,7 @@ vim.opt.switchbuf = 'usetab' -- try to reuse windows/tabs when switching buffers
 vim.opt.synmaxcol = 200 -- don't bother syntax highlighting long lines
 vim.opt.tabstop = 4 -- spaces per tab
 vim.opt.termguicolors = true -- use guifg/guibg instead of ctermfg/ctermbg in terminal
-vim.opt.textwidth = 80 -- automatically hard wrap at 80 columns
+-- vim.opt.textwidth = 80 -- automatically hard wrap at 80 columns
 vim.opt.hidden = true
 
 if root then
@@ -129,6 +129,10 @@ if vim.fn.filereadable('/usr/bin/python') == 1 then
     -- Avoid search, speeding up start-up.
     vim.g.python3_host_prog = '/usr/bin/python'
 end
+
+-- Neoformat
+vim.g.neoformat_only_msg_on_error = 0
+vim.g.neoformat_verbose = 0
 
 -- NvimTree
 -- vim.g.nvim_tree_ignore = {'.git', 'node_modules', '.cache', '*.un~', 'shada'}

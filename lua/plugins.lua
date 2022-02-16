@@ -28,6 +28,9 @@ return require('packer').startup(function(use)
         config = function() require('Comment').setup() end
     }
     use 'mhartington/formatter.nvim'
+    use('jose-elias-alvarez/null-ls.nvim')
+    use('MunifTanjim/prettier.nvim')
+    use('sbdchd/neoformat')
 
     -- editorconfig
     use 'editorconfig/editorconfig-vim'
@@ -39,15 +42,18 @@ return require('packer').startup(function(use)
     }
 
     -- Navigation
-    use "kyazdani42/nvim-tree.lua"
+    use {
+        'kyazdani42/nvim-tree.lua',
+        requires = {
+            'kyazdani42/nvim-web-devicons' -- optional, for file icon
+        },
+        config = function() require'nvim-tree'.setup {} end
+    }
+    use "tpope/vim-projectionist"
     use "andymass/vim-matchup"
     use "christoomey/vim-tmux-navigator"
     use "tpope/vim-surround"
     use "wincent/scalpel"
-    use {
-        'ThePrimeagen/harpoon',
-        requires = {'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim'}
-    }
 
     -- GIT
     use "f-person/git-blame.nvim"
@@ -82,9 +88,21 @@ return require('packer').startup(function(use)
         requires = {"vim-test/vim-test", "preservim/vimux"}
     }
 
+    -- php
+    --[[
+        must run this command
+    --]]
+    use {
+        "phpactor/phpactor",
+        run = '(cd /home/antoine/.local/share/nvim/site/pack/packer/start/phpactor && composer install --no-dev -o )'
+    }
+
     -- completion
-    use 'hrsh7th/nvim-compe'
-    use 'hrsh7th/vim-vsnip'
-    use 'hrsh7th/vim-vsnip-integ'
-    use "rafamadriz/friendly-snippets"
+    use {
+        'hrsh7th/nvim-cmp',
+        requires = {
+            'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path',
+            'hrsh7th/cmp-cmdline', 'hrsh7th/cmp-vsnip', 'hrsh7th/vim-vsnip'
+        }
+    }
 end)

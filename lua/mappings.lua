@@ -48,6 +48,8 @@ local mappings = {
         ["<LocalLeader>th"] = ":set hlsearch!<CR>",
         -- Open last buffer
         ["<LocalLeader><LocalLeader>"] = "<C-^>",
+        -- Go to alternate file 
+        ["<Leader>a"] = ":A<cr>",
         -- NvimTreeToggle
         ["<Leader>e"] = ":NvimTreeToggle<cr>",
         -- LuaFormatter off
