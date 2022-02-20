@@ -54,6 +54,8 @@ return require('packer').startup(function(use)
     use "christoomey/vim-tmux-navigator"
     use "tpope/vim-surround"
     use "wincent/scalpel"
+    -- motions
+    use "bkad/CamelCaseMotion"
 
     -- GIT
     use "f-person/git-blame.nvim"

@@ -84,7 +84,7 @@ if root then
     vim.opt.shada = '' -- Don't create root-owned files.
     vim.opt.shadafile = 'NONE'
 else
-    vim.opt.shada = "'0,<0,f0,n~/.config/nvim/shada"
+    vim.opt.shada = "'0,<0,f0,n~/.cache/nvim/shada"
 end
 if not vi then
     vim.opt.softtabstop = -1 -- use 'shiftwidth' for tab/bs at end of line
@@ -129,6 +129,9 @@ if vim.fn.filereadable('/usr/bin/python') == 1 then
     -- Avoid search, speeding up start-up.
     vim.g.python3_host_prog = '/usr/bin/python'
 end
+
+-- Jumps this_is_a_word
+vim.cmd("set iskeyword-=_")
 
 -- Neoformat
 vim.g.neoformat_only_msg_on_error = 0
