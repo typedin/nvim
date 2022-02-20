@@ -49,9 +49,13 @@ cmp.setup({
             end
         end, {"i", "s"})
     },
-    sources = cmp.config.sources({
-        {name = 'nvim_lsp'}, {name = 'vsnip'} -- For vsnip users.
-    }, {{name = 'buffer'}})
+    documentation = {maxwidth = 120, maxheight = 180},
+    min_length = 1,
+    preselect = true,
+    sources = {
+        {name = "nvim_lsp", priority = 3000}, {name = "vsnip", priority = 2000},
+        {name = "path", priority = 1000}, {name = "buffer", priority = 900}
+    }
 })
 
 cmp.setup.filetype('gitcommit', {

@@ -4,3 +4,6 @@ backup/
 shada
 ./shada
 ./shada.*
+.netrwhist
+!plugged/
+!undo/
