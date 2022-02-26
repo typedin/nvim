@@ -54,8 +54,7 @@ return require('packer').startup(function(use)
     use "christoomey/vim-tmux-navigator"
     use "tpope/vim-surround"
     use "wincent/scalpel"
-    -- motions
-    use "bkad/CamelCaseMotion"
+    use "chaoren/vim-wordmotion"
 
     -- GIT
     use "f-person/git-blame.nvim"
@@ -64,6 +63,9 @@ return require('packer').startup(function(use)
 
     -- autopair
     use "cohama/lexima.vim"
+
+    -- camel case
+    use "tpope/vim-abolish"
 
     -- color theme
     use 'EdenEast/nightfox.nvim'

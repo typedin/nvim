@@ -130,9 +130,6 @@ if vim.fn.filereadable('/usr/bin/python') == 1 then
     vim.g.python3_host_prog = '/usr/bin/python'
 end
 
--- Jumps this_is_a_word
-vim.cmd("set iskeyword-=_")
-
 -- Neoformat
 vim.g.neoformat_only_msg_on_error = 0
 vim.g.neoformat_verbose = 0
