@@ -6,9 +6,6 @@ local local_buffer_mappings = {
     ["<LocalLeader>ca"] = "<cmd>lua require('lspsaga.codeaction').code_action()<CR>",
     ["<LocalLeader>f"] = "<cmd>Lspsaga lsp_finder<CR>",
     ["<LocalLeader>h"] = "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>",
-    ["<LocalLeader>ld"] = "<cmd>lua require'lspsaga.diagnostic'.show_line_diagnostics()<CR>",
-    ["<LocalLeader>n"] = "<cmd>Lspsaga diagnostic_jump_next<CR>",
-    ["<LocalLeader>p"] = "<cmd>Lspsaga diagnostic_jump_prev<CR>",
     ["<LocalLeader>sh"] = "<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>",
     -- lsp
     ["<LocalLeader>gD"] = "<cmd>lua vim.lsp.buf.definition()<CR>",

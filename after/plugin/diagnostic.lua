@@ -12,8 +12,8 @@ vim.diagnostic.config {
   -- options for floating windows:
   float = {
     show_header = true,
-    -- border = "rounded",
-    -- source = "always",
+    border = "rounded",
+    source = "always",
     format = function(d)
       local t = vim.deepcopy(d)
       local code = d.code or d.user_data.lsp.code
@@ -35,21 +35,21 @@ local goto_opts = {
 }
 
 nmap {
-  "<space>dn",
+  "<LocalLeader>dn",
   function()
     vim.diagnostic.goto_next(goto_opts)
   end,
 }
 
 nmap {
-  "<space>dp",
+  "<LocalLeader>dp",
   function()
     vim.diagnostic.goto_prev(goto_opts)
   end,
 }
 
 nmap {
-  "<space>sl",
+  "<LocalLeader>sl",
   function()
     vim.diagnostic.open_float(0, {
       scope = "line",

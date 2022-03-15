@@ -1,7 +1,7 @@
 require("config.cmp")
 require("config.colorizer")
 require("config.comment")
-require("config.diagnostic")
+-- require("config.diagnostic")
 require("config.dial")
 require("config.editorconfig")
 require("config.git-blame")
