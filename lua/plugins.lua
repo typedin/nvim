@@ -9,6 +9,7 @@ return require('packer').startup(function(use)
 
     -- rust
     use "rust-lang/rust.vim"
+    use 'simrat39/rust-tools.nvim'
 
     -- Javascript / Typescript
     use {
@@ -55,6 +56,8 @@ return require('packer').startup(function(use)
     use "tpope/vim-surround"
     use "wincent/scalpel"
     use "chaoren/vim-wordmotion"
+    -- Quickfix enhancements. See :help vim-qf
+    use "romainl/vim-qf"
 
     -- GIT
     use "f-person/git-blame.nvim"
@@ -63,6 +66,8 @@ return require('packer').startup(function(use)
 
     -- autopair
     use "cohama/lexima.vim"
+    -- Better increment/decrement
+    use "monaqa/dial.nvim"
 
     -- camel case
     use "tpope/vim-abolish"
@@ -75,14 +80,15 @@ return require('packer').startup(function(use)
     use "machakann/vim-highlightedyank"
     use "norcalli/nvim-colorizer.lua"
     use 'pierreglaser/folding-nvim'
+    use 'onsails/lspkind-nvim'
     -- syntax highlighting
     use "jwalton512/vim-blade"
-
+    use "tjdevries/colorbuddy.nvim"
     use {
         'hoob3rt/lualine.nvim',
         requires = {'kyazdani42/nvim-web-devicons', opt = true}
     }
-
+    --
     -- tdd
     use "neomake/neomake"
     use "kana/vim-vspec"
@@ -108,5 +114,36 @@ return require('packer').startup(function(use)
             'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path',
             'hrsh7th/cmp-cmdline', 'hrsh7th/cmp-vsnip', 'hrsh7th/vim-vsnip'
         }
+    }
+
+        --
+    -- GIT:
+    use "TimUntersberger/neogit"
+
+    -- Github integration
+    if vim.fn.executable "gh" == 1 then
+      use "pwntester/octo.nvim"
+    end
+    use "ruifm/gitlinker.nvim"
+
+    -- Sweet message committer
+    use "rhysd/committia.vim"
+    use "sindrets/diffview.nvim"
+
+    -- Floating windows are awesome :)
+    use {
+      "rhysd/git-messenger.vim",
+      keys = "<Plug>(git-messenger)",
+    }
+
+    -- Async signs!
+    use "lewis6991/gitsigns.nvim"
+
+    -- Git worktree utility
+    use {
+      "ThePrimeagen/git-worktree.nvim",
+      config = function()
+        require("git-worktree").setup {}
+      end,
     }
 end)

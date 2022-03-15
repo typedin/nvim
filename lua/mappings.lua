@@ -3,12 +3,6 @@
 vim.g.mapleader = " " -- leader should act for anything that interacts with outside
 vim.g.maplocalleader = "," -- LocalLeader should act for anything buffer related
 
--- quickly open config files
-vim.cmd([[
-    nmap <leader>ve :edit ~/.config/nvim/init.lua<cr>
-    nmap <leader>vm :edit ~/.config/nvim/lua/mappings.lua<cr>
-]])
-
 -- the primeagen
 vim.cmd([[
   nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
