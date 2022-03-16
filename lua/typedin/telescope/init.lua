@@ -14,8 +14,8 @@ local reloader = function()
   if SHOULD_RELOAD_TELESCOPE then
     RELOAD "plenary"
     RELOAD "telescope"
-    RELOAD "tj.telescope.setup"
-    RELOAD "tj.telescope.custom"
+    RELOAD "typedin.telescope.setup"
+    RELOAD "typedin.telescope.custom"
   end
 end
 
@@ -455,7 +455,7 @@ return setmetatable({}, {
   __index = function(_, k)
     reloader()
 
-    local has_custom, custom = pcall(require, string.format("tj.telescope.custom.%s", k))
+    local has_custom, custom = pcall(require, string.format("typedin.telescope.custom.%s", k))
 
     if M[k] then
       return M[k]

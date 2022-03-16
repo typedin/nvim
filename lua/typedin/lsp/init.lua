@@ -84,11 +84,10 @@ local custom_attach = function(client)
   buf_inoremap { "<c-s>", vim.lsp.buf.signature_help }
 
   buf_nnoremap { "<space>cr", vim.lsp.buf.rename }
-  telescope_mapper("<space>ca", "lsp_code_actions", nil, true)
 
-  buf_nnoremap { "gd", vim.lsp.buf.definition }
-  buf_nnoremap { "gD", vim.lsp.buf.declaration }
-  buf_nnoremap { "gT", vim.lsp.buf.type_definition }
+  -- buf_nnoremap { "gd", vim.lsp.buf.definition }
+  -- buf_nnoremap { "gD", vim.lsp.buf.declaration }
+  -- buf_nnoremap { "gT", vim.lsp.buf.type_definition }
 
   buf_nnoremap { "<space>gI", handlers.implementation }
   buf_nnoremap { "<space>lr", "<cmd>lua R('typedin.lsp.codelens').run()<CR>" }
@@ -152,6 +151,7 @@ local servers = {
   yamlls = true,
   eslint = true,
   tailwindcss = true,
+
   cmake = (1 == vim.fn.executable "cmake-language-server"),
   dartls = pcall(require, "flutter-tools"),
   sumneko_lua = {
