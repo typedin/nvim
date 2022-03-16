@@ -58,6 +58,7 @@ local _ = require("nvim-treesitter.configs").setup {
     "javascript",
     "markdown",
     "python",
+    "php",
     "query",
     "rust",
     "toml",

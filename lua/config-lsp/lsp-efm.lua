@@ -7,11 +7,11 @@ require("lspconfig").efm.setup {
       "javascript",
       "javascript.jsx",
       "javascriptreact",
+      "php",
+      "python",
       "typescript",
       "typescript.tsx",
       "typescriptreact",
-      "php",
-      "python",
     },
     -- LuaFormatter on
     settings = {}

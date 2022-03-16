@@ -3,20 +3,23 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     -- LSP
-    use "tami5/lspsaga.nvim"
-    use "williamboman/nvim-lsp-installer"
-    use "neovim/nvim-lspconfig"
-
-    -- rust
-    use "rust-lang/rust.vim"
-    use 'simrat39/rust-tools.nvim'
+    use {
+       "neovim/nvim-lspconfig",
+       "nvim-lua/lsp-status.nvim",
+       "tami5/lspsaga.nvim",
+       "williamboman/nvim-lsp-installer",
+    }
 
     -- Javascript / Typescript
     use {
         "jose-elias-alvarez/nvim-lsp-ts-utils",
         ft = {
-            "javascript", "javascriptreact", "javascript.jsx", "typescript",
-            "typescriptreact", "typescript.tsx"
+            "javascript", 
+            "javascript.jsx", 
+            "javascriptreact", 
+            "typescript",
+            "typescript.tsx",
+            "typescriptreact", 
         }
     }
 
@@ -39,8 +42,23 @@ return require('packer').startup(function(use)
     -- fuzzy
     use {
         'nvim-telescope/telescope.nvim',
-        requires = {'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim'}
+        requires = {
+          'nvim-lua/plenary.nvim', 
+          'nvim-lua/popup.nvim',
+          "nvim-telescope/telescope-rs.nvim",
+          "nvim-telescope/telescope-fzf-writer.nvim",
+          "nvim-telescope/telescope-packer.nvim",
+          "nvim-telescope/telescope-fzy-native.nvim",
+          "nvim-telescope/telescope-github.nvim",
+          "nvim-telescope/telescope-symbols.nvim",
+          "nvim-telescope/telescope-hop.nvim" ,
+          "nvim-telescope/telescope-file-browser.nvim" ,
+          "nvim-telescope/telescope-ui-select.nvim" ,
+          "nvim-telescope/telescope-smart-history.nvim" ,
+        }
     }
+
+    use{"nvim-telescope/telescope-fzf-native.nvim", run = "make" }
 
     -- Navigation
     use {
@@ -116,7 +134,18 @@ return require('packer').startup(function(use)
         }
     }
 
-        --
+    use {
+      "folke/lsp-trouble.nvim",
+      cmd = "Trouble",
+      config = function()
+        -- Can use P to toggle auto movement
+        require("trouble").setup {
+          auto_preview = false,
+          auto_fold = true,
+        }
+      end,
+    }
+
     -- GIT:
     use "TimUntersberger/neogit"
 
@@ -135,9 +164,6 @@ return require('packer').startup(function(use)
       "rhysd/git-messenger.vim",
       keys = "<Plug>(git-messenger)",
     }
-
-    -- Async signs!
-    use "lewis6991/gitsigns.nvim"
 
     -- Git worktree utility
     use {

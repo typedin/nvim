@@ -4,14 +4,11 @@ local cmp = require 'cmp'
 local has_words_before = function()
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
     return col ~= 0 and
-               vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col,
-                                                                          col)
-                   :match("%s") == nil
+               vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col) :match("%s") == nil
 end
 
 local feedkey = function(key, mode)
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true),
-                          mode, true)
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
 end
 
 cmp.setup({
@@ -58,9 +55,7 @@ cmp.setup({
     }
 })
 
-cmp.setup.filetype('gitcommit', {
-    sources = cmp.config.sources({{name = 'cmp_git'}}, {{name = 'buffer'}})
-})
+cmp.setup.filetype('gitcommit', { sources = cmp.config.sources({{name = 'cmp_git'}}, {{name = 'buffer'}}) })
 
 cmp.setup.cmdline('/', {sources = {{name = 'buffer'}}})
 
@@ -69,8 +64,7 @@ cmp.setup.cmdline(':', {
 })
 
 -- Setup lspconfig.
-local capabilities = require('cmp_nvim_lsp').update_capabilities(
-                         vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').update_capabilities( vim.lsp.protocol.make_client_capabilities())
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 require('lspconfig')['cssls'].setup {capabilities = capabilities}
 require('lspconfig')['efm'].setup {capabilities = capabilities}

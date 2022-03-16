@@ -1,5 +1,6 @@
 augroup MyJavascriptCommands
   au!
-  " autocmd BufWritePost *.js :silent! !prettier --write %
-  autocmd BufWritePost *.js :silent! Prettier
+  autocmd BufWritePost *.js :silent! !prettier --write %
 augroup END
+
+setlocal shiftwidth=2
