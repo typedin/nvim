@@ -138,24 +138,3 @@ vim.g.neoformat_verbose = 0
 -- vim.g.nvim_tree_ignore = {'.git', 'node_modules', '.cache', '*.un~', 'shada'}
 vim.g.nvim_tree_git_hl = 1
 vim.g.nvim_tree_highlight_opened_files = 1
-vim.g.nvim_tree_disable_window_picker = 1
-vim.g.nvim_tree_icons = {
-    default = "",
-    symlink = "",
-    git = {
-        unstaged = "",
-        staged = "S",
-        unmerged = "",
-        renamed = "➜",
-        deleted = "",
-        untracked = "U",
-        ignored = "◌"
-    },
-    folder = {
-        default = "",
-        open = "",
-        empty = "",
-        empty_open = "",
-        symlink = ""
-    }
-}

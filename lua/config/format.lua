@@ -18,12 +18,18 @@ local formatterConfig = {
         -- black
         function() return {exe = "black", args = {"-"}, stdin = true} end
     },
+    -- php = {
+    --     function()
+    --         return {exe = "php-cs-fixer", args = {"fix"}, stdin = false}
+    --     end
+    -- },
     -- blade = {
-    --     -- blade-formatter
     --     function()
     --         return {
-    --             exe = "blade-formatter",
-    --             args = {"--write", "--stdin", vim.api.nvim_buf_get_name(0)},
+    --             exe = "prettier",
+    --             args = {
+    --                 "--stdin-filepath", vim.api.nvim_buf_get_name(0),
+    --             },
     --             stdin = true
     --         }
     --     end
@@ -34,11 +40,6 @@ local formatterConfig = {
             return {exe = "lua-format", args = {"-i"}, stdin = true}
         end
     },
-    -- php = {
-    --     function()
-    --         return {exe = "php-cs-fixer", args = {"fix"}, stdin = false}
-    --     end
-    -- },
     vue = {
         function()
             return {
@@ -75,7 +76,8 @@ null_ls.setup({
 prettier.setup({
     bin = 'prettier', -- or `prettierd`
     filetypes = {
-        "blade", "css", "graphql", "html", "javascript", "javascriptreact",
+        -- "blade", 
+        "css", "graphql", "html", "javascript", "javascriptreact",
         "json", "less", "markdown", "scss", "typescript", "typescriptreact",
         "yaml", "js", "ts"
     },

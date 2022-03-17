@@ -151,6 +151,7 @@ local servers = {
   yamlls = true,
   eslint = true,
   tailwindcss = true,
+  -- php = {},
 
   cmake = (1 == vim.fn.executable "cmake-language-server"),
   dartls = pcall(require, "flutter-tools"),

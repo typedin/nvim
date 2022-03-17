@@ -4,7 +4,6 @@
 -- Otherwise doesn't do anything.
 
 if vim.fn.executable "stylua" == 0 then
-  print("no stylua")
   return
 end
 
