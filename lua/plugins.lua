@@ -13,12 +13,12 @@ return require('packer').startup(function(use)
   use {
     "jose-elias-alvarez/nvim-lsp-ts-utils",
     ft = {
-      "javascript", 
-      "javascript.jsx", 
-      "javascriptreact", 
+      "javascript",
+      "javascript.jsx",
+      "javascriptreact",
       "typescript",
       "typescript.tsx",
-      "typescriptreact", 
+      "typescriptreact",
     }
   }
 
@@ -42,18 +42,18 @@ return require('packer').startup(function(use)
   use {
     'nvim-telescope/telescope.nvim',
     requires = {
-      'nvim-lua/plenary.nvim', 
-      'nvim-lua/popup.nvim',
-      "nvim-telescope/telescope-rs.nvim",
+      "nvim-telescope/telescope-file-browser.nvim",
       "nvim-telescope/telescope-fzf-writer.nvim",
-      "nvim-telescope/telescope-packer.nvim",
       "nvim-telescope/telescope-fzy-native.nvim",
       "nvim-telescope/telescope-github.nvim",
+      "nvim-telescope/telescope-hop.nvim",
+      "nvim-telescope/telescope-packer.nvim",
+      "nvim-telescope/telescope-rs.nvim",
+      "nvim-telescope/telescope-smart-history.nvim",
       "nvim-telescope/telescope-symbols.nvim",
-      "nvim-telescope/telescope-hop.nvim" ,
-      "nvim-telescope/telescope-file-browser.nvim" ,
-      "nvim-telescope/telescope-ui-select.nvim" ,
-      "nvim-telescope/telescope-smart-history.nvim" ,
+      "nvim-telescope/telescope-ui-select.nvim",
+      'nvim-lua/plenary.nvim',
+      'nvim-lua/popup.nvim',
     }
   }
 
@@ -116,13 +116,11 @@ return require('packer').startup(function(use)
   }
 
   -- php
-  --[[
-  must run this command
+  -- must run this command
   use {
     "phpactor/phpactor",
     run = '(cd /home/antoine/.local/share/nvim/site/pack/packer/start/phpactor && composer install --no-dev -o )'
   }
-  --]]
 
   -- completion
   use {
