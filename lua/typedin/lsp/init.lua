@@ -26,6 +26,7 @@ local custom_init = function(client)
 end
 
 local filetype_attach = setmetatable({
+---@diagnostic disable-next-line: unused-local
   go = function(client)
     vim.cmd [[
       augroup lsp_buf_format
@@ -151,6 +152,7 @@ local servers = {
   yamlls = true,
   eslint = true,
   tailwindcss = true,
+  phpactor = {},
   -- php = {},
 
   cmake = (1 == vim.fn.executable "cmake-language-server"),
