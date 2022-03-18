@@ -3,7 +3,7 @@ require("plugins")
 require("config")
 require("utils")
 -- require("config-lsp")
-require("typedin.globals")
+-- require("typedin.globals")
 require("typedin.lsp")
 require("colorscheme")
 

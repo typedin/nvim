@@ -34,7 +34,7 @@ vim.opt.smartindent = true -- Makes indenting smart
 vim.o.cursorline = true
 
 vim.opt.cmdheight = 1
-vim.opt.laststatus = 2
+vim.opt.laststatus = 3
 vim.opt.backup = false
 vim.opt.syntax = "yes"
 vim.opt.backupcopy = "yes"
