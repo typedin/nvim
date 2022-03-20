@@ -1,14 +1,14 @@
-require("settings")
-require("plugins")
-require("config")
-require("utils")
+require "settings"
+require "plugins"
+require "config"
+require "utils"
 -- require("config-lsp")
 -- require("typedin.globals")
-require("typedin.lsp")
-require("typedin.config.null-ls")
-require("colorscheme")
+require "typedin.lsp"
+require "typedin.config.null-ls"
+require "colorscheme"
 
-require("mappings") -- should be a good idea to move all plugin bindings into this file
+require "mappings" -- should be a good idea to move all plugin bindings into this file
 
 --[[
    syntax highlighting is handled by the treesitter engine NOT lsp cf: tj derieves
