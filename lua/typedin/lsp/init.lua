@@ -20,10 +20,17 @@ require("lspconfig").gopls.setup {
     on_attach = on_attach,
 }
 
+require("lspconfig").phpactor.setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+}
+
 require("lspconfig").sumneko_lua.setup {
     capabilities = capabilities,
     on_attach = on_attach,
 }
+
+require("lspconfig").tailwindcss.setup {}
 
 require("lspconfig").tsserver.setup {
     capabilities = capabilities,
@@ -33,14 +40,7 @@ require("lspconfig").tsserver.setup {
 require("lspconfig").volar.setup {
     -- volar by default supports Vue 3 projects. Vue 2 projects need additional configuration.
     -- https://github.com/johnsoncodehk/volar/blob/master/extensions/vscode-vue-language-features/README.md?plain=1#L28-L63
-    filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
+    filetypes = { "vue" },
     capabilities = capabilities,
     on_attach = on_attach,
 }
-
-require("lspconfig").phpactor.setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-}
-
-require("lspconfig").tailwindcss.setup {}
