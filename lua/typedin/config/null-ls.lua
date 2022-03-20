@@ -22,7 +22,6 @@ null_ls.setup {
                 "--double-quote",
                 "--jsx-double-quote",
                 "--trailing-comma all",
-                -- "--no-bracket-spacing",
                 "--arrow-parens always",
             },
         },
