@@ -46,14 +46,12 @@ return require("packer").startup(function(use)
     -- TreeSitter
     use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
 
+    -- comment
+    use "numToStr/Comment.nvim"
+    use "JoosepAlviste/nvim-ts-context-commentstring"
+
     -- formatting
     use "jose-elias-alvarez/null-ls.nvim"
-    use {
-        "numToStr/Comment.nvim",
-        config = function()
-            require("Comment").setup()
-        end,
-    }
     use "mhartington/formatter.nvim"
     use "MunifTanjim/prettier.nvim"
     use "sbdchd/neoformat"

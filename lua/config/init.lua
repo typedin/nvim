@@ -1,12 +1,12 @@
 -- require("config.diagnostic")
 -- require("config.lspsaga")
 -- require("config.treesitter")
-require("config.colorizer")
-require("config.comment")
-require("config.dial")
-require("config.editorconfig")
-require("config.git-blame")
-require("config.gitsigns")
-require("config.lualine")
-require("config.telescope")
-require("config.vim-test")
+require "config.colorizer"
+-- require("config.comment")
+require "config.dial"
+require "config.editorconfig"
+require "config.git-blame"
+require "config.gitsigns"
+require "config.lualine"
+require "config.telescope"
+require "config.vim-test"
