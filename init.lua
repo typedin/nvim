@@ -7,6 +7,7 @@ require "utils"
 require "typedin.lsp"
 require "typedin.config.autopairs"
 require "typedin.config.comment"
+require "typedin.config.gitsigns"
 require "typedin.config.null-ls"
 require "colorscheme"
 
