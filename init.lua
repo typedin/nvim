@@ -5,6 +5,7 @@ require "utils"
 -- require("config-lsp")
 -- require("typedin.globals")
 require "typedin.lsp"
+require "typedin.config.autopairs"
 require "typedin.config.null-ls"
 require "colorscheme"
 
