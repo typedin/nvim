@@ -9,6 +9,7 @@ require "typedin.config.autopairs"
 require "typedin.config.comment"
 require "typedin.config.gitsigns"
 require "typedin.config.null-ls"
+require "typedin.config.treesitter"
 require "colorscheme"
 
 require "mappings" -- should be a good idea to move all plugin bindings into this file
