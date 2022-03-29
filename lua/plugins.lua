@@ -87,9 +87,6 @@ return require("packer").startup(function(use)
         requires = {
             "kyazdani42/nvim-web-devicons", -- optional, for file icon
         },
-        config = function()
-            require("nvim-tree").setup {}
-        end,
     }
     use "tpope/vim-projectionist"
     use "andymass/vim-matchup"
