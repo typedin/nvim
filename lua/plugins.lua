@@ -45,6 +45,7 @@ return require("packer").startup(function(use)
 
     -- TreeSitter
     use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
+    use "p00f/nvim-ts-rainbow"
 
     -- comment
     use "numToStr/Comment.nvim"

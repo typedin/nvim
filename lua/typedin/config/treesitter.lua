@@ -17,4 +17,9 @@ configs.setup {
         enable = true,
         disable = { "yaml" },
     },
+    rainbow = {
+        enable = true,
+        extended_mode = true,
+        max_file_lines = nil,
+    },
 }
