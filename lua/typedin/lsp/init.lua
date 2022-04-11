@@ -20,6 +20,22 @@ require("lspconfig").gopls.setup {
     on_attach = on_attach,
 }
 
+require("lspconfig").zeta_note.setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+}
+
+require("lspconfig").html.setup {
+    filetypes = { "html" },
+    capabilities = capabilities,
+    on_attach = on_attach,
+}
+require("lspconfig").emmet_ls.setup {
+    filetypes = { "html", "vue", "blade", "css" },
+    capabilities = capabilities,
+    on_attach = on_attach,
+}
+
 require("lspconfig").phpactor.setup {
     capabilities = capabilities,
     on_attach = on_attach,
