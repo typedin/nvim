@@ -21,6 +21,7 @@ null_ls.setup {
             extra_args = {
                 "--double-quote",
                 "--jsx-double-quote",
+                "--tsx-double-quote",
                 "--trailing-comma all",
                 "--arrow-parens always",
             },
