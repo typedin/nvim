@@ -50,7 +50,7 @@ nvim_tree.setup {
     -- auto_close = true,
     -- open_on_tab = false,
     -- hijack_cursor = false,
-    update_cwd = true,
+    update_cwd = false,
     -- update_to_buf_dir = {
     --   enable = true,
     --   auto_open = true,
@@ -71,7 +71,7 @@ nvim_tree.setup {
     },
     update_focused_file = {
         enable = true,
-        update_cwd = true,
+        update_cwd = false,
         ignore_list = {},
     },
     -- system_open = {
@@ -92,7 +92,7 @@ nvim_tree.setup {
         height = 30,
         hide_root_folder = false,
         side = "left",
-        auto_resize = true,
+        auto_resize = false,
         mappings = {
             custom_only = false,
             list = {
