@@ -43,7 +43,9 @@ cmp.setup {
             end
         end, { "i", "s" }),
     },
-    documentation = { maxwidth = 120, maxheight = 180 },
+    window = {
+        documentation = { maxwidth = 120, maxheight = 180 },
+    },
     min_length = 1,
     preselect = true,
     sources = {
