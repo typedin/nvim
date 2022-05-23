@@ -64,18 +64,20 @@ return require("packer").startup(function(use)
     use {
         "nvim-telescope/telescope.nvim",
         requires = {
-            "nvim-telescope/telescope-file-browser.nvim",
-            "nvim-telescope/telescope-fzf-writer.nvim",
-            "nvim-telescope/telescope-fzy-native.nvim",
-            "nvim-telescope/telescope-github.nvim",
-            "nvim-telescope/telescope-hop.nvim",
-            "nvim-telescope/telescope-packer.nvim",
-            "nvim-telescope/telescope-rs.nvim",
-            "nvim-telescope/telescope-smart-history.nvim",
-            "nvim-telescope/telescope-symbols.nvim",
-            "nvim-telescope/telescope-ui-select.nvim",
-            "nvim-lua/plenary.nvim",
-            "nvim-lua/popup.nvim",
+            {
+                "nvim-telescope/telescope-file-browser.nvim",
+                "nvim-telescope/telescope-fzf-writer.nvim",
+                "nvim-telescope/telescope-fzy-native.nvim",
+                "nvim-telescope/telescope-github.nvim",
+                "nvim-telescope/telescope-hop.nvim",
+                "nvim-telescope/telescope-packer.nvim",
+                "nvim-telescope/telescope-rs.nvim",
+                "nvim-telescope/telescope-smart-history.nvim",
+                "nvim-telescope/telescope-symbols.nvim",
+                "nvim-telescope/telescope-ui-select.nvim",
+                "nvim-lua/plenary.nvim",
+                "nvim-lua/popup.nvim",
+            },
         },
     }
 
@@ -117,13 +119,13 @@ return require("packer").startup(function(use)
     use "lukas-reineke/indent-blankline.nvim"
     use "machakann/vim-highlightedyank"
     use "norcalli/nvim-colorizer.lua"
-    use "pierreglaser/folding-nvim"
+    -- use "pierreglaser/folding-nvim"
     use "onsails/lspkind-nvim"
     -- syntax highlighting
     use "jwalton512/vim-blade"
     use "tjdevries/colorbuddy.nvim"
     use {
-        "hoob3rt/lualine.nvim",
+        "nvim-lualine/lualine.nvim",
         requires = { "kyazdani42/nvim-web-devicons", opt = true },
     }
     --

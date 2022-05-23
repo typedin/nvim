@@ -1,13 +1,13 @@
-require('lualine').setup {
-    options = {icons_enabled = true, theme = 'nord'},
+require("lualine").setup {
+    options = { icons_enabled = true, theme = "nord" },
     sections = {
-        lualine_a = {'mode'},
-        lualine_b = {'branch'},
-        lualine_c = {'filename'},
-        lualine_x = {"filetype", 'encoding'},
-        lualine_y = {'progress'},
-        lualine_z = {'location'}
+        lualine_a = { "mode" },
+        lualine_b = { "branch" },
+        lualine_c = { "filename" },
+        lualine_x = { "filetype" },
+        lualine_y = { "diagnostics" },
+        lualine_z = { "location" },
     },
-    extensions = {'fugitive', 'quickfix'},
-    theme = "nightfox"
+    extensions = { "fugitive", "quickfix" },
+    theme = "nightfox",
 }

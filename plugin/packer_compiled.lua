@@ -129,11 +129,6 @@ _G.packer_plugins = {
     path = "/home/antoine/.local/share/nvim/site/pack/packer/start/editorconfig-vim",
     url = "https://github.com/editorconfig/editorconfig-vim"
   },
-  ["folding-nvim"] = {
-    loaded = true,
-    path = "/home/antoine/.local/share/nvim/site/pack/packer/start/folding-nvim",
-    url = "https://github.com/pierreglaser/folding-nvim"
-  },
   ["formatter.nvim"] = {
     loaded = true,
     path = "/home/antoine/.local/share/nvim/site/pack/packer/start/formatter.nvim",
@@ -200,7 +195,7 @@ _G.packer_plugins = {
   ["lualine.nvim"] = {
     loaded = true,
     path = "/home/antoine/.local/share/nvim/site/pack/packer/start/lualine.nvim",
-    url = "https://github.com/hoob3rt/lualine.nvim"
+    url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   neoformat = {
     loaded = true,
