@@ -2,8 +2,6 @@ require "settings"
 require "plugins"
 require "config"
 require "utils"
--- require("config-lsp")
--- require("typedin.globals")
 require "typedin.lsp"
 require "typedin.config.autopairs"
 require "typedin.config.comment"
