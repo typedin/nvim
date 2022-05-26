@@ -3,7 +3,7 @@ require "typedin.config.null-ls"
 local capabilities = require("typedin.config.nvim-cmp").capabilities
 
 local on_attach = function(client)
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.document_formatting = false
     vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = 0 })
     vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, { buffer = 0 })

@@ -19,18 +19,17 @@ local local_buffer_mappings = {
     ["<LocalLeader>gR"] = "<cmd>lua vim.lsp.buf.rename()<CR>",
     ["<LocalLeader>gd"] = "<cmd>lua vim.lsp.buf.declaration()<CR>",
     ["<LocalLeader>gi"] = "<cmd>lua vim.lsp.buf.implementation()<CR>",
-    ["<LocalLeader>gr"] = "<cmd>lua vim.lsp.buf.references()<CR>"
+    ["<LocalLeader>gr"] = "<cmd>lua vim.lsp.buf.references()<CR>",
 }
 
 local lsp_config = {}
-function common_on_attach(client, bufnr)
+local function common_on_attach(client, bufnr)
     require("helpers.mappers").local_buffer_mapper(local_buffer_mappings)
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.document_formatting = false
 end
 
-require'lspconfig'.phpactor.setup {
+require("lspconfig").phpactor.setup {
     handlers = require("config-lsp/common").handlers,
     capabilities = require("config-lsp/common").capabilities,
-    on_attach = common_on_attach
+    on_attach = common_on_attach,
 }
-

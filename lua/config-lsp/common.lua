@@ -13,23 +13,22 @@ local local_buffer_mappings = {
     ["<LocalLeader>gd"] = "<cmd>lua vim.lsp.buf.declaration()<CR>",
     ["<LocalLeader>gf"] = "<cmd>lua vim.lsp.buf.formatting()<CR>",
     ["<LocalLeader>gi"] = "<cmd>lua vim.lsp.buf.implementation()<CR>",
-    ["<LocalLeader>gr"] = "<cmd>lua vim.lsp.buf.references()<CR>"
+    ["<LocalLeader>gr"] = "<cmd>lua vim.lsp.buf.references()<CR>",
 }
 local lsp_config = {}
 
 function lsp_config.common_on_attach(client, bufnr)
     require("helpers.mappers").local_buffer_mapper(local_buffer_mappings)
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.document_formatting = false
 end
 
 lsp_config.handlers = {
-    ["textDocument/publishDiagnostics"] = vim.lsp.with(
-        vim.lsp.diagnostic.on_publish_diagnostics, {
-            signs = true,
-            underline = true,
-            virtual_text = false, -- turn off inlined messages
-            update_in_insert = false
-        })
+    ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+        signs = true,
+        underline = true,
+        virtual_text = false, -- turn off inlined messages
+        update_in_insert = false,
+    }),
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -41,12 +40,14 @@ lsp_config.capabilities = {
                 snippetSupport = true,
                 resolveSupport = {
                     properties = {
-                        'documentation', 'detail', 'additionalTextEdits'
-                    }
-                }
-            }
-        }
-    }
+                        "documentation",
+                        "detail",
+                        "additionalTextEdits",
+                    },
+                },
+            },
+        },
+    },
 }
 
 return lsp_config
