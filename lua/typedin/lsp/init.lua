@@ -1,4 +1,5 @@
 require "typedin.config.null-ls"
+require("typedin.config.diagnostics")
 
 local capabilities = require("typedin.config.nvim-cmp").capabilities
 

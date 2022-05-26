@@ -1,0 +1,7 @@
+require "typedin.config.autopairs"
+require "typedin.config.comment"
+-- require "typedin.config.diagnostics"
+require "typedin.config.gitsigns"
+require "typedin.config.null-ls"
+require "typedin.config.nvimtree"
+require "typedin.config.treesitter"

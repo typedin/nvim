@@ -3,12 +3,7 @@ require "plugins"
 require "config"
 require "utils"
 require "typedin.lsp"
-require "typedin.config.autopairs"
-require "typedin.config.comment"
-require "typedin.config.gitsigns"
-require "typedin.config.null-ls"
-require "typedin.config.treesitter"
-require "typedin.config.nvimtree"
+require "typedin.config"
 require "colorscheme"
 
 require "mappings" -- should be a good idea to move all plugin bindings into this file
