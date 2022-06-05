@@ -50,8 +50,17 @@ require("lspconfig").sumneko_lua.setup {
 require("lspconfig").tailwindcss.setup {}
 
 require("lspconfig").tsserver.setup {
+    debug = true,
     capabilities = capabilities,
     on_attach = on_attach,
+    initializationOptions = {
+        plugins = {
+            {
+                name = 'tsconfig-paths',
+                location = '~/node_modules/tsconfig-paths',
+            }
+        }
+    }
 }
 
 require("lspconfig").volar.setup {
