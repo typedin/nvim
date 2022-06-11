@@ -47,7 +47,7 @@ local mappings = {
         ["<LocalLeader>gD"] = "<cmd>lua vim.lsp.buf.declaration()<CR>",
         ["<LocalLeader>gT"] = "<cmd>lua vim.lsp.buf.type_definition()<CR>",
         ["<LocalLeader>gR"] = "<cmd>lua vim.lsp.buf.rename()<CR>",
-        ["<LocalLeader>gf"] = "<cmd>lua vim.lsp.buf.formatting()<CR>",
+        ["<LocalLeader>gf"] = "<cmd>lua vim.lsp.buf.format({async = true })<CR>",
         ["<LocalLeader>gi"] = "<cmd>lua vim.lsp.buf.implementation()<CR>",
         ["<LocalLeader>gr"] = "<cmd>lua vim.lsp.buf.references()<CR>",
         -- Move selected line / block of text in visual mode
