@@ -1,3 +1,4 @@
+require "neotest-vim-test" { ignore_filetypes = { "python", "lua" } }
 -- set is for option
 -- let is for variables
 -- g is for global

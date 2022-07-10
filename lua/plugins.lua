@@ -65,6 +65,8 @@ return require("packer").startup(function(use)
         "nvim-telescope/telescope.nvim",
         requires = {
             {
+                "nvim-lua/plenary.nvim",
+                "nvim-lua/popup.nvim",
                 "nvim-telescope/telescope-file-browser.nvim",
                 "nvim-telescope/telescope-fzf-writer.nvim",
                 "nvim-telescope/telescope-fzy-native.nvim",
@@ -75,8 +77,6 @@ return require("packer").startup(function(use)
                 "nvim-telescope/telescope-smart-history.nvim",
                 "nvim-telescope/telescope-symbols.nvim",
                 "nvim-telescope/telescope-ui-select.nvim",
-                "nvim-lua/plenary.nvim",
-                "nvim-lua/popup.nvim",
             },
         },
     }
@@ -86,6 +86,7 @@ return require("packer").startup(function(use)
     -- Navigation
     use {
         "kyazdani42/nvim-tree.lua",
+        -- "~/code/typedin/nvim-tree.lua/",
         requires = {
             "kyazdani42/nvim-web-devicons", -- optional, for file icon
         },
@@ -96,6 +97,7 @@ return require("packer").startup(function(use)
     use "tpope/vim-surround"
     use "wincent/scalpel"
     use "chaoren/vim-wordmotion"
+    use "phaazon/hop.nvim"
     -- Quickfix enhancements. See :help vim-qf
     use "romainl/vim-qf"
 
@@ -107,6 +109,7 @@ return require("packer").startup(function(use)
     -- autopair
     use "windwp/nvim-autopairs"
     -- Better increment/decrement
+    use "triglav/vim-visual-increment"
     use "monaqa/dial.nvim"
 
     -- camel case
@@ -119,23 +122,28 @@ return require("packer").startup(function(use)
     use "lukas-reineke/indent-blankline.nvim"
     use "machakann/vim-highlightedyank"
     use "norcalli/nvim-colorizer.lua"
-    -- use "pierreglaser/folding-nvim"
+    use { "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" }
     use "onsails/lspkind-nvim"
+    use { "declancm/windex.nvim",
+      config = function() require('windex').setup() end
+    }
     -- syntax highlighting
     use "jwalton512/vim-blade"
     use "tjdevries/colorbuddy.nvim"
-    use {
-        "nvim-lualine/lualine.nvim",
-        requires = { "kyazdani42/nvim-web-devicons", opt = true },
-    }
-    --
+
     -- tdd
     use "neomake/neomake"
     use "kana/vim-vspec"
     use {
-        "rcarriga/vim-ultest",
-        run = ":UpdateRemotePlugins",
-        requires = { "vim-test/vim-test", "preservim/vimux" },
+        "nvim-neotest/neotest",
+        requires = {
+            "antoinemadec/FixCursorHold.nvim",
+            "nvim-lua/plenary.nvim",
+            "nvim-neotest/neotest-vim-test",
+            "nvim-treesitter/nvim-treesitter",
+            "preservim/vimux",
+            "vim-test/vim-test",
+        },
     }
 
     -- php
