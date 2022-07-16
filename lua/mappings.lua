@@ -86,3 +86,9 @@ local mappings = {
 for mode, value in pairs(mappings) do
     require("helpers.mappers").mode_mapper(mode, value)
 end
+
+vim.api.nvim_set_keymap('', '<LocalLeader>hl', ":HopLineStart<cr>", {})
+vim.api.nvim_set_keymap('', '<LocalLeader>hp', ":HopPattern<cr>", {})
+vim.api.nvim_set_keymap('', '<LocalLeader>hv', ":HopVertical<cr>", {})
+vim.api.nvim_set_keymap('', '<LocalLeader>hw', ":HopWord<cr>", {})
+

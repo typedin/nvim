@@ -97,7 +97,11 @@ return require("packer").startup(function(use)
     use "tpope/vim-surround"
     use "wincent/scalpel"
     use "chaoren/vim-wordmotion"
-    use "phaazon/hop.nvim"
+    use {
+        "phaazon/hop.nvim",
+        branch = "v2", -- optional but strongly recommended
+    }
+
     -- Quickfix enhancements. See :help vim-qf
     use "romainl/vim-qf"
 
@@ -124,8 +128,11 @@ return require("packer").startup(function(use)
     use "norcalli/nvim-colorizer.lua"
     use { "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" }
     use "onsails/lspkind-nvim"
-    use { "declancm/windex.nvim",
-      config = function() require('windex').setup() end
+    use {
+        "declancm/windex.nvim",
+        config = function()
+            require("windex").setup()
+        end,
     }
     -- syntax highlighting
     use "jwalton512/vim-blade"
@@ -145,6 +152,9 @@ return require("packer").startup(function(use)
             "vim-test/vim-test",
         },
     }
+
+    -- markdown
+    use "shime/vim-livedown"
 
     -- php
     -- must run this command

@@ -42,3 +42,8 @@ vim.cmd [[
     "   return expansionString . foldLevelStr . foldSizeStr
     " endfunction
 ]]
+
+vim.cmd [[
+    let g:markdown_fenced_languages = ['html', 'python', 'ruby', 'vim']
+]]
+
