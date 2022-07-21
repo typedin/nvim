@@ -4,7 +4,7 @@ require "config"
 require "utils"
 require "typedin.lsp"
 require "typedin.config"
-require "colorscheme"
+-- require "colorscheme"
 
 require "mappings" -- should be a good idea to move all plugin bindings into this file
 

@@ -144,6 +144,10 @@ return require("packer").startup(function(use)
             require("windex").setup()
         end,
     }
+    use ({ 'themercorp/themer.lua', 
+        config = require "typedin.config.themer",
+    })
+
     -- syntax highlighting
     use "jwalton512/vim-blade"
     use "tjdevries/colorbuddy.nvim"
