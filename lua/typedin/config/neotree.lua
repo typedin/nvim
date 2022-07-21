@@ -1,14 +1,8 @@
--- could be moved into local table
--- but I don't like it
-
-vim.cmd [[ 
-    let g:loaded_netrw       = 1
-    let g:loaded_netrwPlugin = 1
-]]
-
 local M = {
     vim.cmd [[ 
         let g:neo_tree_remove_legacy_commands = 1 
+        let g:loaded_netrw       = 1
+        let g:loaded_netrwPlugin = 1
     ]],
     require("neo-tree").setup {
         window = {
@@ -20,14 +14,14 @@ local M = {
                     hide_gitignored = true,
                     hide_hidden = true, -- only works on Windows for hidden files/directories
                     hide_by_name = {
-                        --"node_modules"
+                        "node_modules",
+                        "vendor",
                     },
                     hide_by_pattern = { -- uses glob style patterns
-                        --"*.meta"
+                        "*.meta",
+                        "*.cache"
                     },
                     never_show = { -- remains hidden even if visible is toggled to true
-                        "..stylua.toml.un~",
-                        "**.un~",
                         "*.un~",
                         "*.*.un~",
                         ".DS_Store",

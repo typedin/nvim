@@ -99,7 +99,7 @@ return require("packer").startup(function(use)
             "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
             "MunifTanjim/nui.nvim",
         },
-        config = require("lua.typedin.config.neotree")
+        config = require "typedin.config.neotree",
     }
     use "tpope/vim-projectionist"
     use "andymass/vim-matchup"
