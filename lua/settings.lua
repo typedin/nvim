@@ -1,5 +1,6 @@
 local home = vim.env.HOME
 local config = home .. "/.config/nvim"
+local neovim_cache = home .. "/.cache/nvim"
 local root = vim.env.USER == "root"
 
 vim.opt.shortmess = vim.opt.shortmess + "W" -- don't echo "[w]"/"[written]" when writing
@@ -26,7 +27,6 @@ vim.cmd [[
     set noswapfile
     "use y and p with the system clipboard
     set clipboard=unnamedplus
-    set directory=$HOME/.cache/nvim/swapfiles//
 ]]
 
 vim.cmd [[
@@ -106,23 +106,25 @@ vim.opt.spellcapcheck = "" -- don't check for capital letters at start of senten
 vim.opt.splitbelow = true -- open horizontal splits below current window
 vim.opt.splitright = true -- open vertical splits to the right of the current window
 vim.opt.suffixes = vim.opt.suffixes - ".h" -- don't sort header files at lower priority
-vim.opt.swapfile = true -- create swap files
 vim.opt.switchbuf = "usetab" -- try to reuse windows/tabs when switching buffers
 -- vim.opt.synmaxcol = 200 -- don't bother syntax highlighting long lines
 -- vim.opt.textwidth = 80 -- automatically hard wrap at 80 columns
 vim.opt.hidden = true
 
 if root then
+    vim.opt.swapfile = false -- don't create swap files
     vim.opt.undofile = false -- don't create root-owned files
 else
+    vim.opt.updatecount = 80 -- update swapfiles every 80 typed chars
     vim.opt.undofile = true -- actually use undo files
-    vim.opt.undodir = "~/.cache/nvim/undofiles/" -- keep undo files out of the way
+    vim.opt.undodir = neovim_cache .. "/undofiles/" -- keep undo files out of the way
+    vim.opt.swapfile = true -- create swap files
+    vim.opt.directory = neovim_cache .. "/swapfiles/" -- keep undo files out of the way
+    vim.opt.viewdir = neovim_cache .. "/view/" -- where to store files for :mkview
 end
 
-vim.opt.updatecount = 80 -- update swapfiles every 80 typed chars
 vim.opt.updatetime = 500 -- CursorHold interval / Reduce time for highlighting other references
 vim.opt.redrawtime = 10000 -- Allow more time for loading syntax on large files
-vim.opt.viewdir = "~/.cache/nvim/view/" -- where to store files for :mkview
 vim.opt.viewoptions = "cursor,folds" -- save/restore just these (with `:{mk,load}view`)
 vim.opt.virtualedit = "block" -- allow cursor to move where there is no text in visual block mode
 vim.opt.visualbell = true -- stop annoying beeping for non-error errors
@@ -137,7 +139,3 @@ if vim.fn.filereadable "/usr/bin/python" == 1 then
     -- Avoid search, speeding up start-up.
     vim.g.python3_host_prog = "/usr/bin/python"
 end
-
--- Neoformat
-vim.g.neoformat_only_msg_on_error = 0
-vim.g.neoformat_verbose = 0
