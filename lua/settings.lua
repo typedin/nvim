@@ -1,11 +1,19 @@
 local home = vim.env.HOME
 local config = home .. "/.config/nvim"
 local root = vim.env.USER == "root"
-local vi = vim.v.progname == "vi"
 
-vim.g.highlightedyank_highlight_duration = 100
 vim.opt.shortmess = vim.opt.shortmess + "W" -- don't echo "[w]"/"[written]" when writing
 vim.opt.shortmess = vim.opt.shortmess + "I" -- no splash screen
+vim.opt.shortmess = vim.opt.shortmess + "A" -- ignore annoying swapfile messages
+vim.opt.shortmess = vim.opt.shortmess + "O" -- file-read message overwrites previous
+vim.opt.shortmess = vim.opt.shortmess + "T" -- truncate non-file messages in middle
+vim.opt.shortmess = vim.opt.shortmess + "W" -- don't echo "[w]"/"[written]" when writing
+vim.opt.shortmess = vim.opt.shortmess + "a" -- use abbreviations in messages eg. `[RO]` instead of `[readonly]`
+vim.opt.shortmess = vim.opt.shortmess + "c" -- completion messages
+vim.opt.shortmess = vim.opt.shortmess + "o" -- overwrite file-written messages
+vim.opt.shortmess = vim.opt.shortmess + "t" -- truncate file messages at start
+
+vim.g.highlightedyank_highlight_duration = 100
 vim.opt.showbreak = "↳ " -- DOWNWARDS ARROW WITH TIP RIGHTWARDS (U+21B3, UTF-8: E2 86 B3)
 vim.opt.termguicolors = true -- use guifg/guibg instead of ctermfg/ctermbg in terminal
 
@@ -26,13 +34,12 @@ vim.cmd [[
     let g:markdown_fenced_languages = ['html', 'python', 'ruby', 'vim']
 ]]
 
-vim.opt.encoding = "utf-8"
 vim.o.fileencoding = "utf-8" -- The encoding written to file
+vim.opt.encoding = "utf-8"
 vim.opt.autoindent = true
 vim.opt.hlsearch = true
 vim.o.completeopt = "menuone,noselect,noinsert"
 
-vim.opt.showcmd = false
 vim.opt.mouse = "a" -- Enable your mouse
 vim.opt.signcolumn = "yes:2" -- Always show the signcolumn, otherwise it would shift the text each time
 vim.opt.emoji = false -- don't assume all emoji are double width
@@ -79,15 +86,6 @@ vim.cmd "set backspace=indent,start,eol"
 vim.opt.shell = "sh" -- shell to use for `!`, `:!`, `system()` etc.
 vim.opt.shiftround = false -- don't always indent by multiple of shiftwidth
 vim.opt.shiftwidth = 4 -- spaces per tab (when shifting)
-vim.opt.shortmess = vim.opt.shortmess + "A" -- ignore annoying swapfile messages
-vim.opt.shortmess = vim.opt.shortmess + "I" -- no splash screen
-vim.opt.shortmess = vim.opt.shortmess + "O" -- file-read message overwrites previous
-vim.opt.shortmess = vim.opt.shortmess + "T" -- truncate non-file messages in middle
-vim.opt.shortmess = vim.opt.shortmess + "W" -- don't echo "[w]"/"[written]" when writing
-vim.opt.shortmess = vim.opt.shortmess + "a" -- use abbreviations in messages eg. `[RO]` instead of `[readonly]`
-vim.opt.shortmess = vim.opt.shortmess + "c" -- completion messages
-vim.opt.shortmess = vim.opt.shortmess + "o" -- overwrite file-written messages
-vim.opt.shortmess = vim.opt.shortmess + "t" -- truncate file messages at start
 vim.opt.showcmd = false -- don't show extra info at end of command line
 vim.opt.sidescroll = 0 -- sidescroll in jumps because terminals are slow
 vim.opt.sidescrolloff = 3 -- same as scrolloff, but for columns
@@ -97,7 +95,7 @@ if root then
     vim.opt.shada = "" -- Don't create root-owned files.
     vim.opt.shadafile = "NONE"
 else
-    vim.opt.shada = "'0,<0,f0,n~/.cache/nvim/shada"
+    vim.opt.shada = "'0,<0,f0,n~/.cache/nvim/shada" -- there are no typos on this line
 end
 
 vim.opt.softtabstop = 4 -- use 'shiftwidth' for tab/bs at end of line
@@ -133,7 +131,6 @@ vim.opt.wildignore = vim.opt.wildignore + "*.o,*.rej,*.so" -- patterns to ignore
 vim.opt.wildmenu = true -- show options as list when switching buffers etc
 vim.opt.wildmode = "longest:full,full" -- shell-like autocomplete to unambiguous portion
 vim.opt.winblend = 10 -- psuedo-transparency for floating windows
--- vim.opt.writebackup = false -- don't keep backups after writing
 
 if vim.fn.filereadable "/usr/bin/python" == 1 then
     -- Avoid search, speeding up start-up.
