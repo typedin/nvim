@@ -15,7 +15,7 @@ vim.opt.shortmess = vim.opt.shortmess + "o" -- overwrite file-written messages
 vim.opt.shortmess = vim.opt.shortmess + "t" -- truncate file messages at start
 
 vim.g.highlightedyank_highlight_duration = 100
-vim.opt.showbreak = "↳ " -- DOWNWARDS ARROW WITH TIP RIGHTWARDS (U+21B3, UTF-8: E2 86 B3)
+vim.opt.showbreak = "↳" -- DOWNWARDS ARROW WITH TIP RIGHTWARDS (U+21B3, UTF-8: E2 86 B3)
 vim.opt.termguicolors = true -- use guifg/guibg instead of ctermfg/ctermbg in terminal
 
 vim.cmd [[
@@ -64,11 +64,8 @@ vim.opt.smartindent = true -- Makes indenting smart
 vim.opt.cmdheight = 1
 vim.opt.laststatus = 3
 vim.opt.backup = true
--- vim.opt.syntax = true
 vim.opt.backupcopy = "yes"
 
-vim.opt.backupdir = vim.fn.expand "~/.cache/nvim/backup//"
-vim.opt.backupdir = vim.opt.backupdir + "."
 
 -- whitespace
 vim.g.indent_blankline_enabled = false
@@ -93,12 +90,12 @@ vim.opt.sidescroll = 3 -- sidescroll in jumps because terminals are slow
 vim.opt.sidescrolloff = 1 -- same as scrolloff, but for columns
 vim.opt.smarttab = true -- <tab>/<BS> indent/dedent in leading whitespace
 
-if root then
-    vim.opt.shada = "" -- Don't create root-owned files.
-    vim.opt.shadafile = "NONE"
-else
-    vim.opt.shada = "'0,<0,f0,n~/.cache/nvim/shada" -- there are no typos on this line
-end
+-- if root then
+--     vim.opt.shada = "" -- Don't create root-owned files.
+--     vim.opt.shadafile = "NONE"
+-- else
+--     vim.opt.shada = "'0,<0,f0,n~/.cache/nvim/shada" -- there are no typos on this line
+-- end
 
 vim.opt.tabstop = 4 -- spaces per tab
 vim.opt.softtabstop = 4 -- use 'shiftwidth' for tab/bs at end of line
@@ -112,15 +109,30 @@ vim.opt.switchbuf = "usetab" -- try to reuse windows/tabs when switching buffers
 vim.opt.hidden = true
 
 if root then
-    vim.opt.swapfile = false -- don't create swap files
+    vim.opt.shada = "" -- Don't create root-owned files.
+    vim.opt.shadafile = "NONE" -- the actual parameter
+
     vim.opt.undofile = false -- don't create root-owned files
+    vim.opt.undodir = false -- don't create undodir for root
+
+    vim.opt.swapfile = false -- don't create swap files
 else
-    vim.opt.updatecount = 80 -- update swapfiles every 80 typed chars
+    vim.opt.shada = "'0,<0,f0,n~/.cache/nvim/shada" -- there are no typos on this line
+
     vim.opt.undofile = true -- actually use undo files
     vim.opt.undodir = neovim_cache .. "/undofiles/" -- keep undo files out of the way
+
     vim.opt.swapfile = true -- create swap files
+
     vim.opt.directory = neovim_cache .. "/swapfiles/" -- keep undo files out of the way
+
     vim.opt.viewdir = neovim_cache .. "/view/" -- where to store files for :mkview
+
+
+    vim.opt.backupdir = vim.fn.expand "~/.cache/nvim/backup//"
+    vim.opt.backupdir = vim.opt.backupdir + "."
+
+    vim.opt.updatecount = 80 -- update swapfiles every 80 typed chars
 end
 
 vim.opt.updatetime = 500 -- CursorHold interval / Reduce time for highlighting other references
