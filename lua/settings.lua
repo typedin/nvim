@@ -20,7 +20,6 @@ vim.opt.termguicolors = true -- use guifg/guibg instead of ctermfg/ctermbg in te
 vim.cmd [[
     syntax on
     set ma
-    set cursorline
     set autoread
     set nobackup
     set nowritebackup
@@ -40,18 +39,21 @@ vim.opt.autoindent = true
 vim.opt.hlsearch = true
 vim.o.completeopt = "menuone,noselect,noinsert"
 
+vim.opt.cursorline = true -- Enable line highlighting
 vim.opt.mouse = "a" -- Enable your mouse
-vim.opt.signcolumn = "yes:2" -- Always show the signcolumn, otherwise it would shift the text each time
 vim.opt.emoji = false -- don't assume all emoji are double width
 
 vim.opt.scrolloff = 10 -- start scrolling 3 lines before edge of viewportvim.opt.modelines
 vim.opt.pumblend = 10 -- pseudo-transparency for popup-menu
+
+vim.opt.signcolumn = "yes:2" -- Always show the signcolumn, otherwise it would shift the text each time
 vim.opt.number = true
 vim.opt.relativenumber = true -- show relative numbers in gutter
 
 vim.opt.joinspaces = false -- don't autoinsert two spaces after '.', '?', '!' for join command
 vim.opt.lazyredraw = true -- don't bother updating screen during macro playback
 vim.opt.linebreak = false -- wrap long lines at characters in 'breakat'
+
 
 -- tabs
 vim.cmd "set ts=4" -- Insert 4 spaces for a tab
@@ -62,7 +64,7 @@ vim.opt.smartindent = true -- Makes indenting smart
 vim.opt.cmdheight = 1
 vim.opt.laststatus = 3
 vim.opt.backup = true
-vim.opt.syntax = "yes"
+-- vim.opt.syntax = true
 vim.opt.backupcopy = "yes"
 
 vim.opt.backupdir = vim.fn.expand "~/.cache/nvim/backup//"
@@ -87,8 +89,8 @@ vim.opt.shell = "sh" -- shell to use for `!`, `:!`, `system()` etc.
 vim.opt.shiftround = false -- don't always indent by multiple of shiftwidth
 vim.opt.shiftwidth = 4 -- spaces per tab (when shifting)
 vim.opt.showcmd = false -- don't show extra info at end of command line
-vim.opt.sidescroll = 0 -- sidescroll in jumps because terminals are slow
-vim.opt.sidescrolloff = 3 -- same as scrolloff, but for columns
+vim.opt.sidescroll = 3 -- sidescroll in jumps because terminals are slow
+vim.opt.sidescrolloff = 1 -- same as scrolloff, but for columns
 vim.opt.smarttab = true -- <tab>/<BS> indent/dedent in leading whitespace
 
 if root then
@@ -98,6 +100,7 @@ else
     vim.opt.shada = "'0,<0,f0,n~/.cache/nvim/shada" -- there are no typos on this line
 end
 
+vim.opt.tabstop = 4 -- spaces per tab
 vim.opt.softtabstop = 4 -- use 'shiftwidth' for tab/bs at end of line
 vim.opt.spellcapcheck = "" -- don't check for capital letters at start of sentence
 vim.opt.splitbelow = true -- open horizontal splits below current window
@@ -106,22 +109,20 @@ vim.opt.suffixes = vim.opt.suffixes - ".h" -- don't sort header files at lower p
 vim.opt.swapfile = true -- create swap files
 vim.opt.switchbuf = "usetab" -- try to reuse windows/tabs when switching buffers
 -- vim.opt.synmaxcol = 200 -- don't bother syntax highlighting long lines
-vim.opt.tabstop = 4 -- spaces per tab
 -- vim.opt.textwidth = 80 -- automatically hard wrap at 80 columns
 vim.opt.hidden = true
 
 if root then
     vim.opt.undofile = false -- don't create root-owned files
 else
-    vim.opt.undodir = config .. "/undo//" -- keep undo files out of the way
-    vim.opt.undodir = vim.opt.undodir + "." -- fallback
     vim.opt.undofile = true -- actually use undo files
+    vim.opt.undodir = "~/.cache/nvim/undofiles/" -- keep undo files out of the way
 end
 
 vim.opt.updatecount = 80 -- update swapfiles every 80 typed chars
 vim.opt.updatetime = 500 -- CursorHold interval / Reduce time for highlighting other references
 vim.opt.redrawtime = 10000 -- Allow more time for loading syntax on large files
-vim.opt.viewdir = config .. "/view" -- where to store files for :mkview
+vim.opt.viewdir = "~/.cache/nvim/view/" -- where to store files for :mkview
 vim.opt.viewoptions = "cursor,folds" -- save/restore just these (with `:{mk,load}view`)
 vim.opt.virtualedit = "block" -- allow cursor to move where there is no text in visual block mode
 vim.opt.visualbell = true -- stop annoying beeping for non-error errors
