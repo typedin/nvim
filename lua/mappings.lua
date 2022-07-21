@@ -50,6 +50,8 @@ local mappings = {
         ["<LocalLeader>gf"] = "<cmd>lua vim.lsp.buf.format({async = true })<CR>",
         ["<LocalLeader>gi"] = "<cmd>lua vim.lsp.buf.implementation()<CR>",
         ["<LocalLeader>gr"] = "<cmd>lua vim.lsp.buf.references()<CR>",
+        -- NvimTreeToggle
+        ["<Leader>e"] = ":Neotree toggle left<cr>",
         -- Move selected line / block of text in visual mode
         ["<LocalLeader>j"] = ":m .+1<CR>==",
         ["<LocalLeader>k"] = ":m .-2<CR>==",
@@ -59,8 +61,6 @@ local mappings = {
         ["<LocalLeader><LocalLeader>"] = "<C-^>",
         -- Go to alternate file
         ["<Leader>a"] = ":A<cr>",
-        -- NvimTreeToggle
-        ["<Leader>e"] = ":NvimTreeToggle<cr>",
         -- LuaFormatter off
         ["<Space>"] = "<NOP>",
         -- resizing

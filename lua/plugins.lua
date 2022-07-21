@@ -84,12 +84,22 @@ return require("packer").startup(function(use)
     use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
 
     -- Navigation
+    -- use {
+    --     "kyazdani42/nvim-tree.lua",
+    --     -- "~/code/typedin/nvim-tree.lua/",
+    --     requires = {
+    --         "kyazdani42/nvim-web-devicons", -- optional, for file icon
+    --     },
+    -- }
     use {
-        "kyazdani42/nvim-tree.lua",
-        -- "~/code/typedin/nvim-tree.lua/",
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v2.x",
         requires = {
-            "kyazdani42/nvim-web-devicons", -- optional, for file icon
+            "nvim-lua/plenary.nvim",
+            "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+            "MunifTanjim/nui.nvim",
         },
+        config = require("lua.typedin.config.neotree")
     }
     use "tpope/vim-projectionist"
     use "andymass/vim-matchup"

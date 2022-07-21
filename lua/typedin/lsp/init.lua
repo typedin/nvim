@@ -16,6 +16,8 @@ local on_attach = function(client)
     vim.keymap.set("n", "<LocalLeader>dl", "<cmd>Telescope diagnostics<cr>", { buffer = 0 }) -- diagnostic list
 end
 
+require("lspconfig").antlersls.setup{}
+
 require("lspconfig").gopls.setup {
     capabilities = capabilities,
     on_attach = on_attach,
