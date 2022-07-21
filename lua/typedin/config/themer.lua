@@ -1,10 +1,10 @@
 require("themer").setup({ enable_installer = true })
 
 local config = require("themer").setup {
-    colorscheme = "kurai",
+    colorscheme = "nord",
     transparent = true,
-    term_color = false,
-    dim_inactive = true,
+    term_color = true,
+    dim_inactive = false,
     styles = {
         ["function"] = { style = "italic,bold" },
         comments = "italic", -- change style of comments to be italic

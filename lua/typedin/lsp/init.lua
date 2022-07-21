@@ -34,7 +34,7 @@ require("lspconfig").html.setup {
     on_attach = on_attach,
 }
 require("lspconfig").emmet_ls.setup {
-    filetypes = { "html", "vue", "blade", "css" },
+    filetypes = { "html", "vue", "blade", "css", "antlers" },
     capabilities = capabilities,
     on_attach = on_attach,
 }

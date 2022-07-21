@@ -144,11 +144,11 @@ return require("packer").startup(function(use)
             require("windex").setup()
         end,
     }
-    use ({ 'themercorp/themer.lua', 
-        config = require "typedin.config.themer",
-    })
+    use { "themercorp/themer.lua", config = require "typedin.config.themer" }
+    use "nvim-lualine/lualine.nvim"
 
     -- syntax highlighting
+    use "matthewbdaly/vim-statamic-antlers"
     use "jwalton512/vim-blade"
     use "tjdevries/colorbuddy.nvim"
 

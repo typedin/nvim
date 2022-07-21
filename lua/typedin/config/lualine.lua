@@ -1,5 +1,8 @@
 require("lualine").setup {
-    options = { icons_enabled = true, theme = "nord" },
+    options = { 
+        icons_enabled = true, 
+        theme = "nord" 
+    },
     sections = {
         lualine_a = { "mode" },
         lualine_b = { "branch" },
