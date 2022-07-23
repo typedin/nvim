@@ -72,3 +72,5 @@ require("lspconfig").volar.setup {
     capabilities = capabilities,
     on_attach = on_attach,
 }
+
+require("lsp_lines").setup()

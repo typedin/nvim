@@ -1,4 +1,4 @@
-require("themer").setup({ enable_installer = true })
+require("themer").setup { enable_installer = true }
 
 local config = require("themer").setup {
     colorscheme = "nord",
@@ -14,6 +14,16 @@ local config = require("themer").setup {
         parameter = { style = "italic" },
         variable = { style = "italic" },
         variableBuiltIn = { style = "italic" },
+    },
+    plugins = {
+        treesitter = true,
+        indentline = true,
+        barbar = true,
+        bufferline = true,
+        cmp = true,
+        gitsigns = true,
+        lsp = true,
+        telescope = true,
     },
 }
 

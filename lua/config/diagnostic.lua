@@ -1,7 +1,8 @@
 local nmap = require("helpers.keymap").nmap
 vim.diagnostic.config {
     underline = true,
-    virtual_text = { severity = nil, source = "if_many", format = nil },
+    -- virtual_text = { severity = nil, source = "if_many", format = nil },
+    virtual_text = false,
     signs = true,
 
     -- options for floating windows:

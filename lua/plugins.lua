@@ -146,7 +146,12 @@ return require("packer").startup(function(use)
     }
     use { "themercorp/themer.lua", config = require "typedin.config.themer" }
     use "nvim-lualine/lualine.nvim"
-
+    use({
+        "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+        config = function()
+            require("lsp_lines").setup()
+        end,                 
+    })
     -- syntax highlighting
     use "matthewbdaly/vim-statamic-antlers"
     use "jwalton512/vim-blade"
