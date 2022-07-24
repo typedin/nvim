@@ -1,8 +1,3 @@
--- vim.cmd [[
---     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
---     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
--- ]]
-
 local home = vim.env.HOME
 local neovim_cache = home .. "/.cache/nvim"
 local root = vim.env.USER == "root"
@@ -133,7 +128,6 @@ else
     vim.opt.directory = neovim_cache .. "/swapfiles/" -- keep undo files out of the way
 
     vim.opt.viewdir = neovim_cache .. "/view/" -- where to store files for :mkview
-
 
     vim.opt.backupdir = vim.fn.expand "~/.cache/nvim/backup//"
     vim.opt.backupdir = vim.opt.backupdir + "."

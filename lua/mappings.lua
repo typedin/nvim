@@ -69,7 +69,7 @@ local mappings = {
         ["<C-Left>"] = ":vertical resize -2<CR>",
         ["<C-Right>"] = ":vertical resize +2<CR>",
         -- show hide white spaces and indent blanklines
-        ["<LocalLeader>l"] = ":set list! | :IndentBlanklineToggle<CR>",
+        ["<LocalLeader>l"] = ":set list!<CR>",
         -- Telescope
         ["<C-p>"] = ":Telescope find_files<cr>",
         ["<C-t>"] = ":Telescope help_tags<cr>",

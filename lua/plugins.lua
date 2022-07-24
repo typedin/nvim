@@ -124,7 +124,7 @@ return require("packer").startup(function(use)
     use "EdenEast/nightfox.nvim"
 
     -- eye candy
-    use "lukas-reineke/indent-blankline.nvim"
+    -- use "lukas-reineke/indent-blankline.nvim"
     use "machakann/vim-highlightedyank"
     use "norcalli/nvim-colorizer.lua"
     use { "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" }
