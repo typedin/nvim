@@ -1,8 +1,7 @@
 require "plugins"
 require "utils"
-require "typedin.lsp"
-require "typedin.config"
-require "settings"
+require "typedin"
+-- require "settings"
 
 require "mappings" -- should be a good idea to move all plugin bindings into this file
 --[[

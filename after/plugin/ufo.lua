@@ -11,3 +11,4 @@ capabilities.textDocument.foldingRange = {
 }
 
 require("ufo").setup()
+

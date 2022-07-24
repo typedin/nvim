@@ -38,6 +38,8 @@ vim.cmd [[
     let g:markdown_fenced_languages = ['html', 'python', 'ruby', 'vim']
 ]]
 
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
 vim.o.fileencoding = "utf-8" -- The encoding written to file
 vim.opt.encoding = "utf-8"
 vim.opt.autoindent = true
@@ -155,3 +157,4 @@ if vim.fn.filereadable "/usr/bin/python" == 1 then
     -- Avoid search, speeding up start-up.
     vim.g.python3_host_prog = "/usr/bin/python"
 end
+
