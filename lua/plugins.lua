@@ -83,14 +83,6 @@ return require("packer").startup(function(use)
 
     use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
 
-    -- Navigation
-    -- use {
-    --     "kyazdani42/nvim-tree.lua",
-    --     -- "~/code/typedin/nvim-tree.lua/",
-    --     requires = {
-    --         "kyazdani42/nvim-web-devicons", -- optional, for file icon
-    --     },
-    -- }
     use {
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v2.x",
@@ -106,7 +98,6 @@ return require("packer").startup(function(use)
     use "christoomey/vim-tmux-navigator"
     use "tpope/vim-surround"
     use "wincent/scalpel"
-    use "chaoren/vim-wordmotion"
     use {
         "phaazon/hop.nvim",
         branch = "v2", -- optional but strongly recommended
@@ -146,16 +137,17 @@ return require("packer").startup(function(use)
     }
     use { "themercorp/themer.lua", config = require "typedin.config.themer" }
     use "nvim-lualine/lualine.nvim"
-    use({
+    use {
         "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
         config = function()
             require("lsp_lines").setup()
-        end,                 
-    })
+        end,
+    }
+    use "yamatsum/nvim-cursorline"
+
     -- syntax highlighting
     use "matthewbdaly/vim-statamic-antlers"
     use "jwalton512/vim-blade"
-    use "tjdevries/colorbuddy.nvim"
 
     -- tdd
     use "neomake/neomake"

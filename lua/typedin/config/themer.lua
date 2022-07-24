@@ -1,30 +1,32 @@
-require("themer").setup { enable_installer = true }
-
 local config = require("themer").setup {
+    enable_installer = true,
     colorscheme = "nord",
     transparent = true,
     term_color = true,
-    dim_inactive = false,
+    dim_inactive = true,
     styles = {
-        ["function"] = { style = "italic,bold" },
-        comments = "italic", -- change style of comments to be italic
+        ["function"] = "bold",
+        comment = { style = "italic,bold" }, -- change style of comments to be italic
         functionbuiltin = { style = "bold" },
-        functions = "italic,bold", -- styles can be a comma separated list
+        functions = "bold", -- styles can be a comma separated list
         keywords = "bold", -- change style of keywords to be bold
         parameter = { style = "italic" },
         variable = { style = "italic" },
         variableBuiltIn = { style = "italic" },
     },
     plugins = {
-        treesitter = true,
-        indentline = true,
-        barbar = true,
         bufferline = true,
         cmp = true,
         gitsigns = true,
+        indentline = true,
         lsp = true,
+        lualine = true,
         telescope = true,
+        treesitter = true,
     },
+    remaps = {
+        [ "LineNr" ] = "#606060",
+    }
 }
 
 return config

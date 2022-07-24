@@ -1,7 +1,13 @@
+-- vim.cmd [[
+--     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+--     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+-- ]]
+
 local home = vim.env.HOME
-local config = home .. "/.config/nvim"
 local neovim_cache = home .. "/.cache/nvim"
 local root = vim.env.USER == "root"
+
+vim.o.termguicolors = true
 
 vim.opt.shortmess = vim.opt.shortmess + "W" -- don't echo "[w]"/"[written]" when writing
 vim.opt.shortmess = vim.opt.shortmess + "I" -- no splash screen
@@ -16,7 +22,6 @@ vim.opt.shortmess = vim.opt.shortmess + "t" -- truncate file messages at start
 
 vim.g.highlightedyank_highlight_duration = 100
 vim.opt.showbreak = "↳" -- DOWNWARDS ARROW WITH TIP RIGHTWARDS (U+21B3, UTF-8: E2 86 B3)
-vim.opt.termguicolors = true -- use guifg/guibg instead of ctermfg/ctermbg in terminal
 
 vim.cmd [[
     syntax on
@@ -39,7 +44,7 @@ vim.opt.autoindent = true
 vim.opt.hlsearch = true
 vim.o.completeopt = "menuone,noselect,noinsert"
 
-vim.opt.cursorline = true -- Enable line highlighting
+-- vim.opt.cursorline = true -- Enable line highlighting
 vim.opt.mouse = "a" -- Enable your mouse
 vim.opt.emoji = false -- don't assume all emoji are double width
 
@@ -65,7 +70,6 @@ vim.opt.cmdheight = 1
 vim.opt.laststatus = 3
 vim.opt.backup = true
 vim.opt.backupcopy = "yes"
-
 
 -- whitespace
 vim.g.indent_blankline_enabled = false

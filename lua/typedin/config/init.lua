@@ -1,3 +1,4 @@
+require "typedin.config.nvim-cursorline"
 require "typedin.config.autopairs"
 require "typedin.config.comment"
 require "typedin.config.dial"

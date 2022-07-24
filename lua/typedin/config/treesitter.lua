@@ -22,4 +22,8 @@ configs.setup {
         extended_mode = true,
         max_file_lines = nil,
     },
+    matchup = {
+        enable = true,
+        disable = { "c", "ruby" },
+      },
 }
