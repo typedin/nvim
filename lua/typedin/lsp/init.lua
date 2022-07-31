@@ -1,5 +1,4 @@
 require "typedin.config.null-ls"
-require("typedin.config.diagnostics")
 
 local capabilities = require("typedin.config.nvim-cmp").capabilities
 
@@ -73,4 +72,4 @@ require("lspconfig").volar.setup {
     on_attach = on_attach,
 }
 
-require("lsp_lines").setup()
+-- require("lsp_lines").setup()

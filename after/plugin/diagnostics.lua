@@ -1,3 +1,9 @@
+vim.o.updatetime = 50
+-- show a floating window on "hover"
+vim.cmd [[ 
+    autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, { focus = false }) 
+]]
+
 -- Jump directly to the first available definition every time.
 vim.lsp.handlers["textDocument/definition"] = function(_, result)
   if not result or vim.tbl_isempty(result) then
@@ -14,13 +20,15 @@ end
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
   vim.lsp.with(vim.lsp.handlers["textDocument/publishDiagnostics"], {
+    severity_sort = true,
+    update_in_insert = false,
+    virtual_text = false,
     signs = {
       severity_limit = "Error",
     },
     underline = {
       severity_limit = "Warning",
     },
-    virtual_text = true,
   })
 
 vim.lsp.handlers["window/showMessage"] = require "typedin.helpers.showmessage"
@@ -34,19 +42,8 @@ M.implementation = function()
     local bufnr = ctx.bufnr
     local ft = vim.api.nvim_buf_get_option(bufnr, "filetype")
 
-    -- In go code, I do not like to see any mocks for impls
-    if ft == "go" then
-      local new_result = vim.tbl_filter(function(v)
-        return not string.find(v.uri, "mock_")
-      end, result)
-
-      if #new_result > 0 then
-        result = new_result
-      end
-    end
-
     vim.lsp.handlers["textDocument/implementation"](err, result, ctx, config)
-    vim.cmd [[normal! zz]]
+    vim.cmd [[ normal! zz ]]
   end)
 end
 

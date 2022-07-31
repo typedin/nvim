@@ -31,17 +31,7 @@ return require("packer").startup(function(use)
     }
 
     -- Javascript / Typescript
-    use {
-        "jose-elias-alvarez/nvim-lsp-ts-utils",
-        ft = {
-            "javascript",
-            "javascript.jsx",
-            "javascriptreact",
-            "typescript",
-            "typescript.tsx",
-            "typescriptreact",
-        },
-    }
+    -- use "jose-elias-alvarez/typescript.nvim"
 
     -- TreeSitter
     use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }

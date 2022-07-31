@@ -1,3 +1,26 @@
+local nmap = require("helpers.keymap").nmap
+local goto_opts = { wrap = true, float = true }
+
+nmap {
+    "<space>dn",
+    function()
+        vim.diagnostic.goto_next(goto_opts)
+    end,
+}
+nmap {
+    "<space>dp",
+    function()
+        vim.diagnostic.goto_prev(goto_opts)
+    end,
+}
+
+nmap {
+    "<space>sl",
+    function()
+        vim.diagnostic.open_float(0, { scope = "line" })
+    end,
+}
+
 -- /!\ mappings for compe are set in config/nvim-compe /!\
 -- Mappings.
 vim.g.mapleader = " " -- leader should act for anything that interacts with outside
