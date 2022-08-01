@@ -1,25 +1,9 @@
-local nmap = require("helpers.keymap").nmap
-local goto_opts = { wrap = true, float = true }
+local nmap = require("typedin.keymap").nmap
 
-nmap {
-    "<space>dn",
-    function()
-        vim.diagnostic.goto_next(goto_opts)
-    end,
-}
-nmap {
-    "<space>dp",
-    function()
-        vim.diagnostic.goto_prev(goto_opts)
-    end,
-}
-
-nmap {
-    "<space>sl",
-    function()
-        vim.diagnostic.open_float(0, { scope = "line" })
-    end,
-}
+-- scalpel
+vim.cmd [[
+  nmap <LocalLeader>e <Plug>(Scalpel)
+]]
 
 -- /!\ mappings for compe are set in config/nvim-compe /!\
 -- Mappings.
@@ -30,11 +14,6 @@ vim.g.maplocalleader = "," -- LocalLeader should act for anything buffer related
 vim.cmd [[
   nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
   nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
-]]
-
--- scalpel
-vim.cmd [[
-  nmap <LocalLeader>e <Plug>(Scalpel)
 ]]
 
 local mappings = {

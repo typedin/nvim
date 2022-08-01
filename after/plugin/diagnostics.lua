@@ -1,53 +1,67 @@
+local nmap = require("typedin.keymap").nmap
+
 vim.o.updatetime = 50
--- show a floating window on "hover"
-vim.cmd [[ 
-    autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, { focus = false }) 
+vim.cmd [[
+    autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, { focus = false })
 ]]
 
--- Jump directly to the first available definition every time.
-vim.lsp.handlers["textDocument/definition"] = function(_, result)
-  if not result or vim.tbl_isempty(result) then
-    print "[LSP] Could not find definition"
-    return
-  end
-
-  if vim.tbl_islist(result) then
-    vim.lsp.util.jump_to_location(result[1], "utf-8")
-  else
-    vim.lsp.util.jump_to_location(result, "utf-8")
-  end
+local signs = {
+    Error = "",
+    Warn = "",
+    Hint = "",
+    Info = "",
+}
+for type, icon in pairs(signs) do
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] =
-  vim.lsp.with(vim.lsp.handlers["textDocument/publishDiagnostics"], {
+vim.diagnostic.config {
+    underline = true,
+    virtual_text = false,
+    -- general purpose
     severity_sort = true,
     update_in_insert = false,
-    virtual_text = false,
-    signs = {
-      severity_limit = "Error",
+    -- options for floating windows:
+    float = {
+        show_header = true,
+        border = "rounded",
+        -- source = "always",
+        format = function(d)
+            local t = vim.deepcopy(d)
+            local code = d.code or d.user_data.lsp.code
+            if code then
+                t.message = string.format("%s [%s]", t.message, code):gsub("1. ", "")
+            end
+            return t.message
+        end,
     },
-    underline = {
-      severity_limit = "Warning",
-    },
-  })
+}
 
-vim.lsp.handlers["window/showMessage"] = require "typedin.helpers.showmessage"
+local goto_opts = {
+    wrap = true,
+    float = true,
+}
 
-local M = {}
+nmap {
+    "<space>dn",
+    function()
+        vim.diagnostic.goto_next(goto_opts)
+    end,
+}
 
-M.implementation = function()
-  local params = vim.lsp.util.make_position_params()
+nmap {
+    "<space>dp",
+    function()
+        vim.diagnostic.goto_prev(goto_opts)
+    end,
+}
 
-  vim.lsp.buf_request(0, "textDocument/implementation", params, function(err, result, ctx, config)
-    local bufnr = ctx.bufnr
-    local ft = vim.api.nvim_buf_get_option(bufnr, "filetype")
-
-    vim.lsp.handlers["textDocument/implementation"](err, result, ctx, config)
-    vim.cmd [[ normal! zz ]]
-  end)
-end
-
--- vim.lsp.codelens.display = require("gl.codelens").display
-
-
-return M
+nmap {
+    "<space>sl",
+    function()
+        vim.diagnostic.open_float(0, {
+            scope = "line",
+        })
+    end,
+}
