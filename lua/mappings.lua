@@ -40,7 +40,6 @@ local mappings = {
         -- must be attached to lsp_config
         ["<LocalLeader>ca"] = "<cmd>lua require('lspsaga.codeaction').code_action()<CR>",
         ["<LocalLeader>f"] = "<cmd>Lspsaga lsp_finder<CR>",
-        ["<LocalLeader>h"] = "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>",
         ["<LocalLeader>sh"] = "<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>",
         -- lsp
         ["<LocalLeader>gd"] = "<cmd>lua vim.lsp.buf.definition()<CR>",
@@ -50,8 +49,6 @@ local mappings = {
         ["<LocalLeader>gf"] = "<cmd>lua vim.lsp.buf.format({async = true })<CR>",
         ["<LocalLeader>gi"] = "<cmd>lua vim.lsp.buf.implementation()<CR>",
         ["<LocalLeader>gr"] = "<cmd>lua vim.lsp.buf.references()<CR>",
-        -- NvimTreeToggle
-        ["<Leader>e"] = ":Neotree toggle left<cr>",
         -- Move selected line / block of text in visual mode
         ["<LocalLeader>j"] = ":m .+1<CR>==",
         ["<LocalLeader>k"] = ":m .-2<CR>==",

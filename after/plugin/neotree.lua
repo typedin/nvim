@@ -1,3 +1,5 @@
+vim.api.nvim_set_keymap("", "<Leader>e", ":Neotree toggle left<cr>", { noremap = true })
+
 local M = {
     vim.cmd [[ 
         let g:neo_tree_remove_legacy_commands = 1 
@@ -19,13 +21,13 @@ local M = {
                     },
                     hide_by_pattern = { -- uses glob style patterns
                         "*.meta",
-                        "*.cache"
+                        "*.cache",
                     },
                     never_show = { -- remains hidden even if visible is toggled to true
                         "*.un~",
                         "*.*.un~",
                         ".DS_Store",
-                        "thumbs.db"
+                        "thumbs.db",
                     },
                 },
             },
