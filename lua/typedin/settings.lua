@@ -31,6 +31,7 @@ vim.cmd [[
 
 vim.cmd [[
     let g:markdown_fenced_languages = ['html', 'python', 'ruby', 'vim']
+    let g:gitblame_enabled = 0
 ]]
 
 vim.opt.hlsearch = false
@@ -41,7 +42,6 @@ vim.opt.autoindent = true
 vim.opt.hlsearch = true
 vim.o.completeopt = "menuone,noselect,noinsert"
 
--- vim.opt.cursorline = true -- Enable line highlighting
 vim.opt.mouse = "a" -- Enable your mouse
 vim.opt.emoji = false -- don't assume all emoji are double width
 
@@ -145,7 +145,7 @@ vim.opt.wildcharm = 26 -- ('<C-z>') substitute for 'wildchar' (<Tab>) in macros
 vim.opt.wildignore = vim.opt.wildignore + "*.o,*.rej,*.so" -- patterns to ignore during file-navigation
 vim.opt.wildmenu = true -- show options as list when switching buffers etc
 vim.opt.wildmode = "longest:full,full" -- shell-like autocomplete to unambiguous portion
-vim.opt.winblend = 10 -- psuedo-transparency for floating windows
+-- vim.opt.winblend = 10 -- psuedo-transparency for floating windows
 
 if vim.fn.filereadable "/usr/bin/python" == 1 then
     -- Avoid search, speeding up start-up.

@@ -99,7 +99,7 @@ return require("packer").startup(function(use)
     -- GIT
     use "f-person/git-blame.nvim"
     use "tpope/vim-fugitive"
-    use { "lewis6991/gitsigns.nvim", requires = { "nvim-lua/plenary.nvim" } }
+    use "lewis6991/gitsigns.nvim"
 
     -- autopair
     use "windwp/nvim-autopairs"
