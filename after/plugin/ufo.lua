@@ -1,5 +1,5 @@
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-vim.o.foldcolumn = '1'
+vim.o.foldcolumn = '2'
 vim.wo.foldlevel = 99 -- feel free to decrease the value
 vim.wo.foldenable = true
 
@@ -11,4 +11,3 @@ capabilities.textDocument.foldingRange = {
 }
 
 require("ufo").setup()
-
