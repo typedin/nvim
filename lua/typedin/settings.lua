@@ -3,6 +3,8 @@ local neovim_cache = home .. "/.cache/nvim"
 local root = vim.env.USER == "root"
 
 vim.o.termguicolors = true
+vim.o.fileencoding = "utf-8" -- The encoding written to file
+vim.o.completeopt = "menuone,noselect,noinsert"
 
 vim.opt.shortmess = vim.opt.shortmess + "W" -- don't echo "[w]"/"[written]" when writing
 vim.opt.shortmess = vim.opt.shortmess + "I" -- no splash screen
@@ -14,8 +16,6 @@ vim.opt.shortmess = vim.opt.shortmess + "a" -- use abbreviations in messages eg.
 vim.opt.shortmess = vim.opt.shortmess + "c" -- completion messages
 vim.opt.shortmess = vim.opt.shortmess + "o" -- overwrite file-written messages
 vim.opt.shortmess = vim.opt.shortmess + "t" -- truncate file messages at start
-
-vim.g.highlightedyank_highlight_duration = 100
 vim.opt.showbreak = "↳" -- DOWNWARDS ARROW WITH TIP RIGHTWARDS (U+21B3, UTF-8: E2 86 B3)
 
 vim.cmd [[
@@ -29,18 +29,16 @@ vim.cmd [[
     set clipboard=unnamedplus
 ]]
 
-vim.cmd [[
-    let g:markdown_fenced_languages = ['html', 'python', 'ruby', 'vim']
-    let g:gitblame_enabled = 0
-]]
+vim.g.highlightedyank_highlight_duration = 100
+vim.g.gitblame_enabled = 0
+vim.g.markdown_fenced_languages = {'html', 'python', 'ruby', 'vim'}
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
-vim.o.fileencoding = "utf-8" -- The encoding written to file
 vim.opt.encoding = "utf-8"
 vim.opt.autoindent = true
 vim.opt.hlsearch = true
-vim.o.completeopt = "menuone,noselect,noinsert"
+
 
 vim.opt.mouse = "a" -- Enable your mouse
 vim.opt.emoji = false -- don't assume all emoji are double width
@@ -90,14 +88,6 @@ vim.opt.showcmd = false -- don't show extra info at end of command line
 vim.opt.sidescroll = 3 -- sidescroll in jumps because terminals are slow
 vim.opt.sidescrolloff = 1 -- same as scrolloff, but for columns
 vim.opt.smarttab = true -- <tab>/<BS> indent/dedent in leading whitespace
-
--- if root then
---     vim.opt.shada = "" -- Don't create root-owned files.
---     vim.opt.shadafile = "NONE"
--- else
---     vim.opt.shada = "'0,<0,f0,n~/.cache/nvim/shada" -- there are no typos on this line
--- end
-
 vim.opt.tabstop = 4 -- spaces per tab
 vim.opt.softtabstop = 4 -- use 'shiftwidth' for tab/bs at end of line
 vim.opt.spellcapcheck = "" -- don't check for capital letters at start of sentence
