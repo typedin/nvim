@@ -1,2 +1,2 @@
-require("typedin.lsp")
 require("typedin.settings")
+require("typedin.lsp")

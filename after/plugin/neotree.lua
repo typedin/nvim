@@ -1,4 +1,4 @@
-vim.api.nvim_set_keymap("", "<Leader>e", ":Neotree toggle left<cr>", { noremap = true })
+vim.api.nvim_set_keymap("", "<Leader>e", ":Neotree toggle left<cr>", { noremap = true, silent = true })
 
 local M = {
     vim.cmd [[ 
