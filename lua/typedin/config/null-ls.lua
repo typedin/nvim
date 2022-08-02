@@ -38,7 +38,3 @@ null_ls.setup {
         end
     end,
 }
-
-vim.cmd [[
-    command! Format execute 'lua vim.lsp.buf.formatting_sync()'
-]]
