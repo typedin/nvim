@@ -73,9 +73,7 @@ local mappings = {
         ["<leader>g"] = "<cmd>lua require('telescope.builtin').live_grep()<cr>",
         ["<leader>b"] = "<cmd>lua require('telescope.builtin').buffers()<cr>",
         ["<leader>t"] = "<cmd>lua require('telescope.builtin').help_tags()<cr>",
-        ["<C-p>"] = ":Telescope find_files<cr>",
-        ["<C-t>"] = ":Telescope help_tags<cr>",
-        ["<C-g>"] = ":Telescope live_grep<cr>"
+        ["<C-p>"] = "<cmd>lua require('helpers.messages').nope()<cr>",
     }
 }
 
