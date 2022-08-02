@@ -1,12 +1,11 @@
+-- Mappings.
+vim.g.mapleader = " " -- leader should act for anything that interacts with outside
+vim.g.maplocalleader = "," -- LocalLeader should act for anything buffer related
+
 -- scalpel
 vim.cmd [[
   nmap <LocalLeader>e <Plug>(Scalpel)
 ]]
-
--- /!\ mappings for compe are set in config/nvim-compe /!\
--- Mappings.
-vim.g.mapleader = " " -- leader should act for anything that interacts with outside
-vim.g.maplocalleader = "," -- LocalLeader should act for anything buffer related
 
 -- the primeagen
 vim.cmd [[

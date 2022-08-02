@@ -1,17 +1,8 @@
 require "plugins"
 require "utils"
 require "typedin"
--- require "settings"
-
 require "mappings" -- should be a good idea to move all plugin bindings into this file
---[[
-nvim
-    after
-        plugins
-    lua
-        typedin
-    init.lua
---]]
+
 --[[
    syntax highlighting is handled by the treesitter engine NOT lsp cf: tj derieves
 
