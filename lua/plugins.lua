@@ -1,9 +1,7 @@
 -- Have packer use a popup window
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-    return
-end
+if not status_ok then return end
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
 vim.cmd [[
   augroup packer_user_config
@@ -14,9 +12,9 @@ vim.cmd [[
 packer.init {
     display = {
         open_fn = function()
-            return require("packer.util").float { border = "rounded" }
-        end,
-    },
+            return require("packer.util").float {border = "rounded"}
+        end
+    }
 }
 
 return require("packer").startup(function(use)
@@ -24,17 +22,20 @@ return require("packer").startup(function(use)
     use "wbthomason/packer.nvim"
     -- LSP
     use {
-        "neovim/nvim-lspconfig",
-        "nvim-lua/lsp-status.nvim",
-        "tami5/lspsaga.nvim",
-        "williamboman/nvim-lsp-installer",
+        "neovim/nvim-lspconfig", "nvim-lua/lsp-status.nvim",
+        "tami5/lspsaga.nvim", "williamboman/nvim-lsp-installer"
     }
 
     -- Javascript / Typescript
     -- use "jose-elias-alvarez/typescript.nvim"
-
+    use {
+        "ThePrimeagen/refactoring.nvim",
+        requires = {
+            {"nvim-lua/plenary.nvim"}, {"nvim-treesitter/nvim-treesitter"}
+        }
+    }
     -- TreeSitter
-    use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
+    use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
     use "p00f/nvim-ts-rainbow"
 
     -- comment
@@ -55,8 +56,7 @@ return require("packer").startup(function(use)
         "nvim-telescope/telescope.nvim",
         requires = {
             {
-                "nvim-lua/plenary.nvim",
-                "nvim-lua/popup.nvim",
+                "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim",
                 "nvim-telescope/telescope-file-browser.nvim",
                 "nvim-telescope/telescope-fzf-writer.nvim",
                 "nvim-telescope/telescope-fzy-native.nvim",
@@ -66,22 +66,21 @@ return require("packer").startup(function(use)
                 "nvim-telescope/telescope-rs.nvim",
                 "nvim-telescope/telescope-smart-history.nvim",
                 "nvim-telescope/telescope-symbols.nvim",
-                "nvim-telescope/telescope-ui-select.nvim",
-            },
-        },
+                "nvim-telescope/telescope-ui-select.nvim"
+            }
+        }
     }
 
-    use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
+    use {"nvim-telescope/telescope-fzf-native.nvim", run = "make"}
 
     use {
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v2.x",
         requires = {
-            "nvim-lua/plenary.nvim",
-            "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-            "MunifTanjim/nui.nvim",
+            "nvim-lua/plenary.nvim", "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+            "MunifTanjim/nui.nvim"
         },
-        config = require "typedin.config.neotree",
+        config = require "typedin.config.neotree"
     }
     use "tpope/vim-projectionist"
     use "andymass/vim-matchup"
@@ -90,7 +89,7 @@ return require("packer").startup(function(use)
     use "wincent/scalpel"
     use {
         "phaazon/hop.nvim",
-        branch = "v2", -- optional but strongly recommended
+        branch = "v2" -- optional but strongly recommended
     }
 
     -- Quickfix enhancements. See :help vim-qf
@@ -117,21 +116,17 @@ return require("packer").startup(function(use)
     -- use "lukas-reineke/indent-blankline.nvim"
     use "machakann/vim-highlightedyank"
     use "norcalli/nvim-colorizer.lua"
-    use { "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" }
+    use {"kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async"}
     use "onsails/lspkind-nvim"
     use {
         "declancm/windex.nvim",
-        config = function()
-            require("windex").setup()
-        end,
+        config = function() require("windex").setup() end
     }
-    use { "themercorp/themer.lua", config = require "typedin.config.themer" }
+    use {"themercorp/themer.lua", config = require "typedin.config.themer"}
     use "nvim-lualine/lualine.nvim"
     use {
         "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-        config = function()
-            require("lsp_lines").setup()
-        end,
+        config = function() require("lsp_lines").setup() end
     }
     use "yamatsum/nvim-cursorline"
 
@@ -145,13 +140,10 @@ return require("packer").startup(function(use)
     use {
         "nvim-neotest/neotest",
         requires = {
-            "antoinemadec/FixCursorHold.nvim",
-            "nvim-lua/plenary.nvim",
-            "nvim-neotest/neotest-vim-test",
-            "nvim-treesitter/nvim-treesitter",
-            "preservim/vimux",
-            "vim-test/vim-test",
-        },
+            "antoinemadec/FixCursorHold.nvim", "nvim-lua/plenary.nvim",
+            "nvim-neotest/neotest-vim-test", "nvim-treesitter/nvim-treesitter",
+            "preservim/vimux", "vim-test/vim-test"
+        }
     }
 
     -- markdown
@@ -161,21 +153,17 @@ return require("packer").startup(function(use)
     -- must run this command
     use {
         "phpactor/phpactor",
-        run = "(cd /home/antoine/.local/share/nvim/site/pack/packer/start/phpactor && composer install --no-dev -o )",
+        run = "(cd /home/antoine/.local/share/nvim/site/pack/packer/start/phpactor && composer install --no-dev -o )"
     }
 
     -- completion
     use {
         "hrsh7th/nvim-cmp",
         requires = {
-            "L3MON4D3/LuaSnip",
-            "hrsh7th/cmp-buffer",
-            "hrsh7th/cmp-cmdline",
-            "hrsh7th/cmp-nvim-lsp",
-            "hrsh7th/cmp-path",
-            "hrsh7th/cmp-vsnip",
-            "hrsh7th/vim-vsnip",
-        },
+            "L3MON4D3/LuaSnip", "hrsh7th/cmp-buffer", "hrsh7th/cmp-cmdline",
+            "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-path", "hrsh7th/cmp-vsnip",
+            "hrsh7th/vim-vsnip"
+        }
     }
 
     use {
@@ -183,20 +171,15 @@ return require("packer").startup(function(use)
         cmd = "Trouble",
         config = function()
             -- Can use P to toggle auto movement
-            require("trouble").setup {
-                auto_preview = false,
-                auto_fold = true,
-            }
-        end,
+            require("trouble").setup {auto_preview = false, auto_fold = true}
+        end
     }
 
     -- GIT:
     use "TimUntersberger/neogit"
 
     -- Github integration
-    if vim.fn.executable "gh" == 1 then
-        use "pwntester/octo.nvim"
-    end
+    if vim.fn.executable "gh" == 1 then use "pwntester/octo.nvim" end
     use "ruifm/gitlinker.nvim"
 
     -- Sweet message committer
@@ -204,16 +187,11 @@ return require("packer").startup(function(use)
     use "sindrets/diffview.nvim"
 
     -- Floating windows are awesome :)
-    use {
-        "rhysd/git-messenger.vim",
-        keys = "<Plug>(git-messenger)",
-    }
+    use {"rhysd/git-messenger.vim", keys = "<Plug>(git-messenger)"}
 
     -- Git worktree utility
     use {
         "ThePrimeagen/git-worktree.nvim",
-        config = function()
-            require("git-worktree").setup {}
-        end,
+        config = function() require("git-worktree").setup {} end
     }
 end)
